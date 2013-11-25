@@ -12,7 +12,7 @@ namespace ThakurEscape
         /// </summary>
         static void Main()
         {
-            var factory = new MonoGame.Framework.GameFrameworkViewSource<ThakurEscape>();
+            var factory = new MonoGame.Framework.GameFrameworkViewSource<ThakurEscapeGame>();
             Windows.ApplicationModel.Core.CoreApplication.Run(factory);
         }
     }
