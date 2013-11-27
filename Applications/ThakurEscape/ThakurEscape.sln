@@ -13,13 +13,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThakurEscape.Android", "Tha
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
+		SccNumberOfProjects = 3
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://fhnaseer.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = ThakurEscape\\ThakurEscape.csproj
 		SccProjectName1 = ThakurEscape
 		SccLocalPath1 = ThakurEscape
+		SccProjectUniqueName2 = ThakurEscape.Android\\ThakurEscape.Android.csproj
+		SccProjectName2 = ThakurEscape.Android
+		SccLocalPath2 = ThakurEscape.Android
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Android|Any CPU = Android|Any CPU
