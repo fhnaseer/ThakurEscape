@@ -3,61 +3,65 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.GameObjects
 {
-    enum KithayChalayHoBadshaho
-    {
-        Sajjay,
-        Khabbay,
-        Utay,
-        Thallay
-    }
-
     internal class Thakur : GameObjectBase
     {
-        private KithayChalayHoBadshaho _kithay;
+        private KidherChalayHoBadshaho _kithay;
 
         public Thakur(int rowPosition, int columnPosition)
             : base(rowPosition, columnPosition)
         {
-            Kithay = KithayChalayHoBadshaho.Sajjay;
+            Kithay = KidherChalayHoBadshaho.Daain;
         }
 
-        internal KithayChalayHoBadshaho Kithay
+        internal bool HasSabzChaabi { get; set; }
+        internal bool HasLaalChaabi { get; set; }
+        internal int Taaqat { get; set; }
+
+        internal KidherChalayHoBadshaho Kithay
         {
             get { return _kithay; }
             private set
             {
-                if (value == KithayChalayHoBadshaho.Khabbay ||
-                    value == KithayChalayHoBadshaho.Sajjay)
+                if (value == KidherChalayHoBadshaho.Baain ||
+                    value == KidherChalayHoBadshaho.Daain)
                     _kithay = value;
             }
         }
 
         internal override string TextureContentPath
         {
-            get { return "Thakur\\Akram.png"; }
+            get { return "Thakur\\Thakur.png"; }
             set { }
         }
 
         internal override void Draw(SpriteBatch spriteBatch)
         {
             var spriteEffect = SpriteEffects.None;
-            if (Kithay == KithayChalayHoBadshaho.Khabbay)
+            if (Kithay == KidherChalayHoBadshaho.Baain)
                 spriteEffect = SpriteEffects.FlipHorizontally;
             spriteBatch.Draw(Texture, BoundingRectangle, null, Color.White, 0f, Vector2.Zero, spriteEffect, 0f);
         }
 
-        internal void Move(KithayChalayHoBadshaho kithay)
+        internal void Move(KidherChalayHoBadshaho kithay)
         {
             Kithay = kithay;
 
-            if (kithay == KithayChalayHoBadshaho.Thallay)
-                RowPosition++;
-            else if (kithay == KithayChalayHoBadshaho.Utay)
-                RowPosition--;
-            else if (kithay == KithayChalayHoBadshaho.Sajjay)
-                ColumnPosition++;
-            else if (kithay == KithayChalayHoBadshaho.Khabbay)
-                ColumnPosition--;
+            switch (kithay)
+            {
+                case KidherChalayHoBadshaho.Neechay:
+                    RowPosition++;
+                    break;
+                case KidherChalayHoBadshaho.Ooper:
+                    RowPosition--;
+                    break;
+                case KidherChalayHoBadshaho.Daain:
+                    ColumnPosition++;
+                    break;
+                case KidherChalayHoBadshaho.Baain:
+                    ColumnPosition--;
+                    break;
+            }
+            Taaqat--;
         }
     }
 }

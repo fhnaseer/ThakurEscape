@@ -23,15 +23,15 @@ namespace ThakurEscape.GameObjects
         internal float RowPosition { get; set; }
         internal float ColumnPosition { get; set; }
 
-        public float Width { get { return ThakurEscapeGame.GameWidth/16; } } //Texture.Width; } }
-        public float Height { get { return ThakurEscapeGame.GameHeight/10; } } //Texture.Height; } }
+        public static float Width { get { return ThakurEscapeGame.GameWidth/20; } } //Texture.Width; } }
+        public static float Height { get { return ThakurEscapeGame.GameHeight/10; } } //Texture.Height; } }
         public Vector2 Size { get { return new Vector2(Width, Height); } }
 
         internal virtual void Update() { }
         internal abstract void Draw(SpriteBatch spriteBatch);
-        internal void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
+        internal void Draw(SpriteBatch spriteBatch, Color color)
         {
-            spriteBatch.Draw(Texture, BoundingRectangle, Color.White);
+            spriteBatch.Draw(Texture, BoundingRectangle, color);
             //spriteBatch.Draw(Texture, position, null, color, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }

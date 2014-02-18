@@ -142,13 +142,13 @@ namespace ThakurEscape
                 else if (gesture.GestureType == GestureType.VerticalDrag)
                 {
                     var currentPosition = gesture.Position;
-                    _moveTo = currentPosition.Y > _tempPosition.Y ? KithayChalayHoBadshaho.Thallay : KithayChalayHoBadshaho.Utay;
+                    _moveTo = currentPosition.Y > _tempPosition.Y ? KidherChalayHoBadshaho.Neechay : KidherChalayHoBadshaho.Ooper;
                     _tempPosition = currentPosition;
                 }
                 else if (gesture.GestureType == GestureType.HorizontalDrag)
                 {
                     var currentPosition = gesture.Position;
-                    _moveTo = currentPosition.X > _tempPosition.X ? KithayChalayHoBadshaho.Sajjay : KithayChalayHoBadshaho.Khabbay;
+                    _moveTo = currentPosition.X > _tempPosition.X ? KidherChalayHoBadshaho.Daain : KidherChalayHoBadshaho.Baain;
                     _tempPosition = currentPosition;
                 }
                 else if (gesture.GestureType == GestureType.DragComplete)
@@ -200,7 +200,7 @@ namespace ThakurEscape
                 if (_leftDown)
                 {
                     _upDown = _downDown = _leftDown = _rightDown = false;
-                    _level.MovePlayer(KithayChalayHoBadshaho.Khabbay);
+                    _level.MovePlayer(KidherChalayHoBadshaho.Baain);
                 }
             }
             if (gamePadState.IsButtonUp(Buttons.DPadRight) && keyboardState.IsKeyUp(Keys.Right) && keyboardState.IsKeyUp(Keys.D))
@@ -208,7 +208,7 @@ namespace ThakurEscape
                 if (_rightDown)
                 {
                     _upDown = _downDown = _leftDown = _rightDown = false;
-                    _level.MovePlayer(KithayChalayHoBadshaho.Sajjay);
+                    _level.MovePlayer(KidherChalayHoBadshaho.Daain);
                 }
             }
             if (gamePadState.IsButtonUp(Buttons.DPadUp) && keyboardState.IsKeyUp(Keys.Up) && keyboardState.IsKeyUp(Keys.W))
@@ -216,7 +216,7 @@ namespace ThakurEscape
                 if (_upDown)
                 {
                     _upDown = _downDown = _leftDown = _rightDown = false;
-                    _level.MovePlayer(KithayChalayHoBadshaho.Utay);
+                    _level.MovePlayer(KidherChalayHoBadshaho.Ooper);
                 }
             }
             if (gamePadState.IsButtonUp(Buttons.DPadDown) && keyboardState.IsKeyUp(Keys.Down) && keyboardState.IsKeyUp(Keys.S))
@@ -224,13 +224,13 @@ namespace ThakurEscape
                 if (_downDown)
                 {
                     _upDown = _downDown = _leftDown = _rightDown = false;
-                    _level.MovePlayer(KithayChalayHoBadshaho.Thallay);
+                    _level.MovePlayer(KidherChalayHoBadshaho.Neechay);
                 }
             }
         }
 
         private Vector2 _tempPosition;
-        private KithayChalayHoBadshaho _moveTo;
+        private KidherChalayHoBadshaho _moveTo;
 
         private void ZoomBy(float scale)
         {

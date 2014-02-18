@@ -4,12 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.GameObjects
 {
-    enum TileTexture
-    {
-        BlackAndWhite
-    }
-
-    class Tile : GameObjectBase
+    class Eint : GameObjectBase
     {
         private string _textureContentPath;
         internal override string TextureContentPath
@@ -18,30 +13,30 @@ namespace ThakurEscape.GameObjects
             set { _textureContentPath = value; }
         }
 
-        public Tile(TileTexture tileTexture, int row, int column)
+        public Eint(AintTextureType aintTextureType, int row, int column)
             : base(row, column)
         {
-            switch (tileTexture)
+            switch (aintTextureType)
             {
-                case TileTexture.BlackAndWhite:
-                    _textureContentPath = "Tiles\\BlockA1.png";
+                case AintTextureType.BlackAndWhite:
+                    _textureContentPath = Constants.BlackAndWhiteAintImagePath;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("tileTexture");
+                    throw new ArgumentOutOfRangeException("aintTextureType");
             }
         }
 
-        internal static Tile LoadTiles(char tileType, int row, int column)
+        internal static Eint LoadEint(char tileType, int row, int column)
         {
             if (tileType == '#')
-                return new Tile(TileTexture.BlackAndWhite, row, column);
+                return new Eint(AintTextureType.BlackAndWhite, row, column);
 
             throw new NotImplementedException();
         }
 
         internal override void Draw(SpriteBatch spriteBatch)
         {
-            Draw(spriteBatch, Position, Color.White);
+            Draw(spriteBatch, Color.White);
         }
     }
 }
