@@ -9,6 +9,13 @@ namespace ThakurEscape.GameObjects
         {
         }
 
+        internal override Texture2D Texture
+        {
+            get { return StaticTexture ?? (StaticTexture = GetTexture()); }
+        }
+
+        internal static Texture2D StaticTexture { get; set; }
+
         internal override string TextureContentPath
         {
             get { return Constants.PaisaImagePath; }

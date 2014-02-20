@@ -13,6 +13,13 @@ namespace ThakurEscape.GameObjects
             Kithay = KidherChalayHoBadshaho.Daain;
         }
 
+        internal override Texture2D Texture
+        {
+            get { return StaticTexture ?? (StaticTexture = GetTexture()); }
+        }
+
+        internal static Texture2D StaticTexture { get; set; }
+
         internal bool HasSabzChaabi { get; set; }
         internal bool HasLaalChaabi { get; set; }
         internal int Taaqat { get; set; }
@@ -30,7 +37,7 @@ namespace ThakurEscape.GameObjects
 
         internal override string TextureContentPath
         {
-            get { return "Thakur\\Thakur.png"; }
+            get { return Constants.ThakurNormalImagePath; }
             set { }
         }
 

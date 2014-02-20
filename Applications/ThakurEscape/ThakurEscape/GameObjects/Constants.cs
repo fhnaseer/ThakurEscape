@@ -4,19 +4,22 @@
     {
         public const string GraphicsFolderName = "Graphics";
         public const string TilesFolderName = "Tiles";
+        public const string ThakurFolderName = "Thakur";
 
-        public const string ChaabiImageName = "Chaabi.png";
-        public const string DirwaazaImageName = "Dirwaaza.png";
-        public const string PaisaImageName = "Paisa.png";
-        public const string LeftArrowImageName = "LeftArrow.png";
-        public const string MoutImageName = "Mout.png";
-        public const string TaalaImageName = "Taala.png";
-        public const string TaaqatImageName = "Taaqat.png";
-        public const string TopArrowImageName = "TopArrow.png";
-        public const string VictoryImageName = "Victory.png";
-        public const string NextScreenImageName = "Victory.png";
+        public const string ChaabiImageName = "Chaabi";
+        public const string DirwaazaImageName = "Dirwaaza";
+        public const string PaisaImageName = "Paisa";
+        public const string LeftArrowImageName = "LeftArrow";
+        public const string MoutImageName = "Mout";
+        public const string TaalaImageName = "Taala";
+        public const string TaaqatImageName = "Taaqat";
+        public const string TopArrowImageName = "TopArrow";
+        public const string VictoryImageName = "Victory";
+        public const string NextScreenImageName = "Victory";
 
-        public const string BlackAndWhiteEintImageName = "BlockA1.png";
+        public const string BlackAndWhiteEintImageName = "BlockA1";
+
+        public const string ThakurNormalImageName = "Thakur";
 
         public static string ChaabiImagePath
         {
@@ -71,6 +74,11 @@
         public static string BlackAndWhiteAintImagePath
         {
             get { return BlackAndWhiteEintImageName.ToPath(TilesFolderName); }
+        }
+
+        public static string ThakurNormalImagePath
+        {
+            get { return ThakurNormalImageName.ToPath(ThakurFolderName); }
         }
 
         public static string ToPath(this string input, string parentFolder)

@@ -10,6 +10,13 @@ namespace ThakurEscape.GameObjects.Chaabiyan
         {
         }
 
+        internal override Texture2D Texture
+        {
+            get { return StaticTexture ?? (StaticTexture = GetTexture()); }
+        }
+
+        internal static Texture2D StaticTexture { get; set; }
+
         protected abstract ChaabiType ChaabiType { get; }
         protected abstract Color Color { get; }
 

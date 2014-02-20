@@ -26,6 +26,13 @@ namespace ThakurEscape.GameObjects
             }
         }
 
+        internal override Texture2D Texture
+        {
+            get { return StaticTexture ?? (StaticTexture = GetTexture()); }
+        }
+
+        internal static Texture2D StaticTexture { get; set; }
+
         internal static Eint LoadEint(char tileType, int row, int column)
         {
             if (tileType == '#')

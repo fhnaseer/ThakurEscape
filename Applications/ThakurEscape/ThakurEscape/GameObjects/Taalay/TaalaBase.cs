@@ -10,6 +10,13 @@ namespace ThakurEscape.GameObjects.Taalay
         {
         }
 
+        internal override Texture2D Texture
+        {
+            get { return StaticTexture ?? (StaticTexture = GetTexture()); }
+        }
+
+        internal static Texture2D StaticTexture { get; set; }
+
         protected abstract TaalaType TaalaType { get; }
         protected abstract Color Color { get; }
 

@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{8A0875A5-F18E-4192-92E2-678106EC9872}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Windows Phone</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThakurEscape.WindowsPhone</RootNamespace>
+    <AssemblyName>ThakurEscape.WindowsPhone</AssemblyName>
+    <XnaRefreshLevel>1</XnaRefreshLevel>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows Phone</XnaPlatform>
+    <XnaProfile>Reach</XnaProfile>
+    <XnaCrossPlatformGroupID>f74299c1-5c42-4e59-9b98-28d411fe54f3</XnaCrossPlatformGroupID>
+    <XnaOutputType>Game</XnaOutputType>
+    <WPTombstoneEnabled>false</WPTombstoneEnabled>
+    <XapFilename>$(AssemblyName).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <XnaWindowsPhoneManifestTemplate>Properties\WMAppManifest.xml</XnaWindowsPhoneManifestTemplate>
+    <TileImage>Background.png</TileImage>
+    <TileTitle>ThakurEscape.WindowsPhone</TileTitle>
+    <SupportedCultures>
+    </SupportedCultures>
+    <ApplicationIcon>Game.ico</ApplicationIcon>
+    <Thumbnail>PhoneGameThumb.png</Thumbnail>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Windows Phone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Windows Phone\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS_PHONE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <XnaCompressContent>false</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Windows Phone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Windows Phone\Release</OutputPath>
+    <DefineConstants>TRACE;WINDOWS_PHONE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <XnaCompressContent>false</XnaCompressContent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="Microsoft.Xna.Framework.Game" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics" />
+    <Reference Include="Microsoft.Xna.Framework.GamerServices" />
+    <Reference Include="Microsoft.Xna.Framework.Input.Touch" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Net" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\ThakurEscape\ExtensionMethods.cs">
+      <Link>ExtensionMethods.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Arrows\ArrowBase.cs">
+      <Link>GameObjects\Arrows\ArrowBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Arrows\DownArrow.cs">
+      <Link>GameObjects\Arrows\DownArrow.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Arrows\LeftArrow.cs">
+      <Link>GameObjects\Arrows\LeftArrow.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Arrows\RightArrow.cs">
+      <Link>GameObjects\Arrows\RightArrow.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Arrows\UpArrow.cs">
+      <Link>GameObjects\Arrows\UpArrow.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Chaabiyan\ChaabiBase.cs">
+      <Link>GameObjects\Chaabiyan\ChaabiBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Chaabiyan\LaalChaabi.cs">
+      <Link>GameObjects\Chaabiyan\LaalChaabi.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Chaabiyan\SabzChaabi.cs">
+      <Link>GameObjects\Chaabiyan\SabzChaabi.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Constants.cs">
+      <Link>GameObjects\Constants.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Dirwaazay\DirwaazaBase.cs">
+      <Link>GameObjects\Dirwaazay\DirwaazaBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Dirwaazay\LaalDirwaaza.cs">
+      <Link>GameObjects\Dirwaazay\LaalDirwaaza.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Dirwaazay\SabzDirwaaza.cs">
+      <Link>GameObjects\Dirwaazay\SabzDirwaaza.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Eint.cs">
+      <Link>GameObjects\Eint.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Enums.cs">
+      <Link>GameObjects\Enums.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\GameObjectBase.cs">
+      <Link>GameObjects\GameObjectBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Level.cs">
+      <Link>GameObjects\Level.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Mout.cs">
+      <Link>GameObjects\Mout.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\NextScreen.cs">
+      <Link>GameObjects\NextScreen.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Paisa.cs">
+      <Link>GameObjects\Paisa.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Taalay\LaalTaala.cs">
+      <Link>GameObjects\Taalay\LaalTaala.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Taalay\SabzTaala.cs">
+      <Link>GameObjects\Taalay\SabzTaala.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Taalay\TaalaBase.cs">
+      <Link>GameObjects\Taalay\TaalaBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Taaqat.cs">
+      <Link>GameObjects\Taaqat.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Thakur.cs">
+      <Link>GameObjects\Thakur.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\GameObjects\Victory.cs">
+      <Link>GameObjects\Victory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ThakurEscape\ThakurEscapeGame.cs">
+      <Link>ThakurEscapeGame.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Properties\AppManifest.xml">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </None>
+    <None Include="Properties\WMAppManifest.xml">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </None>
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\ThakurEscape\Content\Graphics\Chaabi.png">
+      <Link>Content\Graphics\Chaabi.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\ThakurEscape\Content\Graphics\Dirwaaza.png">
+      <Link>Content\Graphics\Dirwaaza.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\ThakurEscape\Content\Graphics\LeftArrow.png">
+      <Link>Content\Graphics\LeftArrow.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\ThakurEscape\Content\Graphics\Mout.png">
+      <Link>Content\Graphics\Mout.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\ThakurEscape\Content\Graphics\Paisa.png">
+      <Link>Content\Graphics\Paisa.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\ThakurEscape\Content\Graphics\Taala.png">
+      <Link>Content\Graphics\Taala.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\ThakurEscape\Content\Graphics\Taaqat.png">
+      <Link>Content\Graphics\Taaqat.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\ThakurEscape\Content\Graphics\TopArrow.png">
+      <Link>Content\Graphics\TopArrow.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\ThakurEscape\Content\Graphics\Victory.png">
+      <Link>Content\Graphics\Victory.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\ThakurEscape\Content\Thakur\Thakur.png">
+      <Link>Content\Thakur\Thakur.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\ThakurEscape\Content\Tiles\BlockA1.png">
+      <Link>Content\Tiles\BlockA1.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Game.ico" />
+    <Content Include="PhoneGameThumb.png">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </Content>
+    <Content Include="Background.png">
+      <XnaPlatformSpecific>true</XnaPlatformSpecific>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThakurEscape.WindowsPhoneContent\ThakurEscape.WindowsPhoneContent.contentproj">
+      <Name>ThakurEscape.WindowsPhoneContent</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!--
+      To modify your build process, add your task inside one of the targets below and uncomment it. 
+      Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+    -->
+</Project>

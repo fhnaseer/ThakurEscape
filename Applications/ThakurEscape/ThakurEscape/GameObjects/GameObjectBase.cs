@@ -12,10 +12,10 @@ namespace ThakurEscape.GameObjects
         }
 
         internal abstract string TextureContentPath { get; set; }
-        private Texture2D _texture;
-        internal Texture2D Texture
+        internal abstract Texture2D Texture { get; }
+        protected Texture2D GetTexture()
         {
-            get { return _texture ?? (_texture = ThakurEscapeGame.GameContent.Load<Texture2D>(TextureContentPath)); }
+            return ThakurEscapeGame.GameContent.Load<Texture2D>(TextureContentPath);
         }
 
         internal Vector2 Position { get { return new Vector2(ColumnPosition, RowPosition) * Size; } }

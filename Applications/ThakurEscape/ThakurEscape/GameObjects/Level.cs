@@ -37,7 +37,7 @@ namespace ThakurEscape.GameObjects
                 "###.4..#E..#########",
                 "###.################",
                 "###.################",
-                "###............d....",
+                "###.CT.DDD.....d....",
                 "#####28###.###M#..##",
                 "##c....#t..#########",
                 "####################"
@@ -46,7 +46,7 @@ namespace ThakurEscape.GameObjects
             LevelStatus = LevelStatus.InProgress;
         }
 
-        private void LoadGameObjects(IReadOnlyList<string> lines)
+        private void LoadGameObjects(List<string> lines)
         {
             Rows = lines.Count;
             _gameObjects = new GameObjectBase[Rows][];
@@ -110,6 +110,9 @@ namespace ThakurEscape.GameObjects
                             _gameObjects[row][column] = new LaalTaala(row, column);
                             _taalay.Add(_gameObjects[row][column] as TaalaBase);
                             break;
+                        case 'V':
+                            _gameObjects[row][column] = new Victory(row, column);
+                            break;
                     }
                 }
             }
@@ -119,6 +122,9 @@ namespace ThakurEscape.GameObjects
         {
             spriteBatch.Begin();
 
+            Thakur.Draw(spriteBatch);
+            spriteBatch.End();
+            spriteBatch.Begin();
             var bound1 = _gameObjects.GetUpperBound(0);
             for (var i = 0; i <= bound1; i++)
                 for (var j = 0; j < _gameObjects[i].Length; j++)
@@ -127,7 +133,6 @@ namespace ThakurEscape.GameObjects
                     if (_gameObjects[i][j] != null)
                         _gameObjects[i][j].Draw(spriteBatch);
                 }
-            Thakur.Draw(spriteBatch);
 
             spriteBatch.End();
         }
