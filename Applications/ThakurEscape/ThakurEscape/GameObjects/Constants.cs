@@ -5,6 +5,7 @@
         public const string GraphicsFolderName = "Graphics";
         public const string TilesFolderName = "Tiles";
         public const string ThakurFolderName = "Thakur";
+        public const string FontsFolderName = "Fonts";
 
         public const string ChaabiImageName = "Chaabi";
         public const string DirwaazaImageName = "Dirwaaza";
@@ -17,9 +18,14 @@
         public const string VictoryImageName = "Victory";
         public const string NextScreenImageName = "Victory";
 
+        public const string NewGameImageName = "NewGame";
+        public const string ExitGameImageName = "ExitGame";
+
         public const string BlackAndWhiteEintImageName = "BlockA1";
 
         public const string ThakurNormalImageName = "Thakur";
+
+        public const string SegoeImageName = "Segoe";
 
         public static string ChaabiImagePath
         {
@@ -71,6 +77,16 @@
             get { return NextScreenImageName.ToPath(GraphicsFolderName); }
         }
 
+        public static string NewGameImagePath
+        {
+            get { return NewGameImageName.ToPath(GraphicsFolderName); }
+        }
+
+        public static string ExitGameImagePath
+        {
+            get { return ExitGameImageName.ToPath(GraphicsFolderName); }
+        }
+
         public static string BlackAndWhiteAintImagePath
         {
             get { return BlackAndWhiteEintImageName.ToPath(TilesFolderName); }
@@ -79,6 +95,11 @@
         public static string ThakurNormalImagePath
         {
             get { return ThakurNormalImageName.ToPath(ThakurFolderName); }
+        }
+
+        public static string SegoeImagePath
+        {
+            get { return SegoeImageName.ToPath(FontsFolderName); }
         }
 
         public static string ToPath(this string input, string parentFolder)

@@ -5,17 +5,15 @@ namespace ThakurEscape.GameObjects.Dirwaazay
 {
     internal abstract class DirwaazaBase : GameObjectBase
     {
-        protected DirwaazaBase(int rowPosition, int columnPosition)
-            : base(rowPosition, columnPosition)
+        //protected DirwaazaBase(float x, float y, float width, float height)
+        //    : this (new Vector2(x,y), width, height)
+        //{
+        //}
+
+        protected DirwaazaBase(Vector2 position, float width, float height) 
+            : base(position, width, height)
         {
         }
-
-        internal override Texture2D Texture
-        {
-            get { return StaticTexture ?? (StaticTexture = GetTexture()); }
-        }
-
-        internal static Texture2D StaticTexture { get; set; }
 
         protected abstract DirwaazaType DirwaazaType { get; }
         protected abstract Color Color { get; }

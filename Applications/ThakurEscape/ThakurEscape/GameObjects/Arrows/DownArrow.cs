@@ -1,11 +1,17 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.GameObjects.Arrows
 {
     class DownArrow : ArrowBase
     {
-        public DownArrow(int rowPosition, int columnPosition)
-            : base(rowPosition, columnPosition)
+        public DownArrow(float x, float y, float width, float height)
+            : this(new Vector2(x, y), width, height)
+        {
+        }
+
+        public DownArrow(Vector2 position, float width, float height) 
+            : base(position, width, height)
         {
         }
 

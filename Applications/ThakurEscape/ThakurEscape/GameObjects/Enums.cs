@@ -28,7 +28,8 @@
         Daain,
         Baain,
         Ooper,
-        Neechay
+        Neechay,
+        KahinBhiNahin
     }
 
     enum Simat

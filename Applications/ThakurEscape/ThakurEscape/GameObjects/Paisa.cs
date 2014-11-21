@@ -5,7 +5,13 @@ namespace ThakurEscape.GameObjects
 {
     class Paisa : GameObjectBase
     {
-        public Paisa(int rowPosition, int columnPosition) : base(rowPosition, columnPosition)
+        //public Paisa(float x, float y, float width, float height)
+        //    : this (new Vector2(x,y), width, height)
+        //{
+        //}
+
+        public Paisa(Vector2 position, float width, float height) 
+            : base(position, width, height)
         {
         }
 

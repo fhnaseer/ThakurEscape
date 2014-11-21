@@ -7,7 +7,13 @@ namespace ThakurEscape.GameObjects
     {
         internal const int Steps = 26;
 
-        public Taaqat(int rowPosition, int columnPosition) : base(rowPosition, columnPosition)
+        //public Taaqat(float x, float y, float width, float height)
+        //    : this (new Vector2(x,y), width, height)
+        //{
+        //}
+
+        public Taaqat(Vector2 position, float width, float height) 
+            : base(position, width, height)
         {
         }
 

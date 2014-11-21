@@ -5,8 +5,13 @@ namespace ThakurEscape.GameObjects.Dirwaazay
 {
     class LaalDirwaaza : DirwaazaBase
     {
-        public LaalDirwaaza(int rowPosition, int columnPosition)
-            : base(rowPosition, columnPosition)
+        //public LaalDirwaaza(float x, float y, float width, float height)
+        //    : this (new Vector2(x,y), width, height)
+        //{
+        //}
+
+        public LaalDirwaaza(Vector2 position, float width, float height) 
+            : base(position, width, height)
         {
         }
 

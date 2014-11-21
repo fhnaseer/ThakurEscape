@@ -150,6 +150,10 @@
     <Compile Include="GameObjects\Dirwaazay\DirwaazaBase.cs" />
     <Compile Include="GameObjects\Dirwaazay\LaalDirwaaza.cs" />
     <Compile Include="GameObjects\Dirwaazay\SabzDirwaaza.cs" />
+    <Compile Include="GameObjects\Fonts\FontBase.cs" />
+    <Compile Include="GameObjects\Fonts\Segoe.cs" />
+    <Compile Include="GameObjects\Menus\ExitGame.cs" />
+    <Compile Include="GameObjects\Menus\NewGame.cs" />
     <Compile Include="GameObjects\Paisa.cs" />
     <Compile Include="GameObjects\Taalay\LaalTaala.cs" />
     <Compile Include="GameObjects\Taalay\SabzTaala.cs" />
@@ -159,14 +163,24 @@
     <Compile Include="GameObjects\GameObjectBase.cs" />
     <Compile Include="GameObjects\Arrows\LeftArrow.cs" />
     <Compile Include="GameObjects\Mout.cs" />
-    <Compile Include="GameObjects\NextScreen.cs" />
+    <Compile Include="GameObjects\NextBoard.cs" />
     <Compile Include="GameObjects\Arrows\RightArrow.cs" />
     <Compile Include="GameObjects\Chaabiyan\SabzChaabi.cs" />
     <Compile Include="GameObjects\Arrows\UpArrow.cs" />
     <Compile Include="GameObjects\Victory.cs" />
-    <Compile Include="GameObjects\Level.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Screens\FullScreenBase.cs" />
+    <Compile Include="Screens\LevelScreen.cs" />
     <Compile Include="GameObjects\Thakur.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Screens\LevelControllerScreen.cs" />
+    <Compile Include="Screens\BoardScreen.cs" />
+    <Compile Include="Screens\LevelSelectorScreen.cs" />
+    <Compile Include="Screens\MainScreen.cs" />
+    <Compile Include="Screens\ScreenBase.cs" />
+    <Compile Include="Storage\BoardStorage.cs" />
+    <Compile Include="Storage\GameStorage.cs" />
+    <Compile Include="Storage\LevelStorage.cs" />
     <Compile Include="ThakurEscapeGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GameObjects\Eint.cs" />
@@ -175,6 +189,9 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Content\Fonts\Segoe.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="ThakurEscape_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -185,10 +202,16 @@
     <Content Include="Content\Graphics\Chaabi.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Graphics\ExitGame.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Graphics\LeftArrow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Graphics\Dirwaaza.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Graphics\NewGame.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Graphics\Taaqat.png">
@@ -218,7 +241,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>

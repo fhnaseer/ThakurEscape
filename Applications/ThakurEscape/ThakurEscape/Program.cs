@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ThakurEscape
+﻿namespace ThakurEscape
 {
     /// <summary>
     /// The main class.

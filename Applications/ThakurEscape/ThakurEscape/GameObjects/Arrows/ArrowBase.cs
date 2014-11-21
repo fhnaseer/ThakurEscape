@@ -5,8 +5,13 @@ namespace ThakurEscape.GameObjects.Arrows
 {
     abstract class ArrowBase : GameObjectBase
     {
-        protected ArrowBase(int rowPosition, int columnPosition)
-            : base(rowPosition, columnPosition)
+        //protected ArrowBase(float x, float y, float width, float height)
+        //    : this (new Vector2(x,y), width, height)
+        //{
+        //}
+
+        protected ArrowBase(Vector2 position, float width, float height) 
+            : base(position, width, height)
         {
         }
 

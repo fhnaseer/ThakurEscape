@@ -6,9 +6,15 @@ namespace ThakurEscape.GameObjects
     internal class Thakur : GameObjectBase
     {
         private KidherChalayHoBadshaho _kithay;
+        
+        public Thakur(float x, float y, float width, float height)
+            : this(new Vector2(x, y), width, height)
+        {
+            Kithay = KidherChalayHoBadshaho.Daain;
+        }
 
-        public Thakur(int rowPosition, int columnPosition)
-            : base(rowPosition, columnPosition)
+        public Thakur(Vector2 position, float width, float height)
+            : base(position, width, height)
         {
             Kithay = KidherChalayHoBadshaho.Daain;
         }
@@ -20,9 +26,11 @@ namespace ThakurEscape.GameObjects
 
         internal static Texture2D StaticTexture { get; set; }
 
+        internal bool HasReachedExit { get; set; }
         internal bool HasSabzChaabi { get; set; }
         internal bool HasLaalChaabi { get; set; }
         internal int Taaqat { get; set; }
+        internal int Paisa { get; set; }
 
         internal KidherChalayHoBadshaho Kithay
         {
@@ -56,16 +64,16 @@ namespace ThakurEscape.GameObjects
             switch (kithay)
             {
                 case KidherChalayHoBadshaho.Neechay:
-                    RowPosition++;
+                    Position += new Vector2(0f, Height);
                     break;
                 case KidherChalayHoBadshaho.Ooper:
-                    RowPosition--;
+                    Position -= new Vector2(0f, Height);
                     break;
                 case KidherChalayHoBadshaho.Daain:
-                    ColumnPosition++;
+                    Position += new Vector2(Width, 0f);
                     break;
                 case KidherChalayHoBadshaho.Baain:
-                    ColumnPosition--;
+                    Position -= new Vector2(Width, 0f);
                     break;
             }
             Taaqat--;

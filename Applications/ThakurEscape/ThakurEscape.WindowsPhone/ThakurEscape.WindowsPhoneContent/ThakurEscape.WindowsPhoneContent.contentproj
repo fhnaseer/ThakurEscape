@@ -41,7 +41,13 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="..\..\ThakurEscape\Content\Fonts\Segoe.xnb">
+      <Link>Fonts\Segoe.xnb</Link>
+      <Name>Segoe</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\ThakurEscape\Content\Graphics\Chaabi.png">
       <Link>Graphics\Chaabi.png</Link>

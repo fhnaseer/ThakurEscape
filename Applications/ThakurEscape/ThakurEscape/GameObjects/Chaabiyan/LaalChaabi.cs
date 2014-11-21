@@ -5,8 +5,13 @@ namespace ThakurEscape.GameObjects.Chaabiyan
 {
     class LaalChaabi : ChaabiBase
     {
-        public LaalChaabi(int rowPosition, int columnPosition)
-            : base(rowPosition, columnPosition)
+        public LaalChaabi(float x, float y, float width, float height)
+            : this(new Vector2(x, y), width, height)
+        {
+        }
+
+        public LaalChaabi(Vector2 position, float width, float height) 
+            : base(position, width, height)
         {
         }
 

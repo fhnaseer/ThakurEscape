@@ -5,27 +5,36 @@ namespace ThakurEscape.GameObjects
 {
     internal abstract class GameObjectBase
     {
-        protected GameObjectBase(int rowPosition, int columnPosition)
+        //protected GameObjectBase(float x, float y, float width, float height)
+        //    : this(new Vector2(x, y), width, height)
+        //{
+        //}
+
+        protected GameObjectBase(Vector2 position, float width, float height)
         {
-            RowPosition = rowPosition;
-            ColumnPosition = columnPosition;
+            Position = position;
+            Width = width;
+            Height = height;
         }
 
         internal abstract string TextureContentPath { get; set; }
+
         internal abstract Texture2D Texture { get; }
+
         protected Texture2D GetTexture()
         {
             return ThakurEscapeGame.GameContent.Load<Texture2D>(TextureContentPath);
         }
 
-        internal Vector2 Position { get { return new Vector2(ColumnPosition, RowPosition) * Size; } }
-        internal Rectangle BoundingRectangle { get { return new Rectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y); } }
-        internal float RowPosition { get; set; }
-        internal float ColumnPosition { get; set; }
+        public Vector2 Position { get; set; }
 
-        public static float Width { get { return ThakurEscapeGame.GameWidth/20; } } //Texture.Width; } }
-        public static float Height { get { return ThakurEscapeGame.GameHeight/10; } } //Texture.Height; } }
-        public Vector2 Size { get { return new Vector2(Width, Height); } }
+        public Rectangle BoundingRectangle
+        {
+            get { return new Rectangle((int)Position.X, (int)Position.Y, (int)Width, (int)Height); }
+        }
+
+        public float Width { get; protected set; }
+        public float Height { get; protected set; }
 
         internal virtual void Update() { }
         internal abstract void Draw(SpriteBatch spriteBatch);

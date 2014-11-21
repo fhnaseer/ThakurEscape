@@ -6,15 +6,13 @@ namespace ThakurEscape.GameObjects
 {
     class Eint : GameObjectBase
     {
-        private string _textureContentPath;
-        internal override string TextureContentPath
-        {
-            get { return _textureContentPath; }
-            set { _textureContentPath = value; }
-        }
+        //public Eint(AintTextureType aintTextureType, float x, float y, float width, float height)
+        //    : this(aintTextureType, new Vector2(x, y), width, height)
+        //{
+        //}
 
-        public Eint(AintTextureType aintTextureType, int row, int column)
-            : base(row, column)
+        public Eint(AintTextureType aintTextureType, Vector2 vector2, float width, float height)
+            : base(vector2, width, height)
         {
             switch (aintTextureType)
             {
@@ -26,6 +24,13 @@ namespace ThakurEscape.GameObjects
             }
         }
 
+        private string _textureContentPath;
+        internal override string TextureContentPath
+        {
+            get { return _textureContentPath; }
+            set { _textureContentPath = value; }
+        }
+
         internal override Texture2D Texture
         {
             get { return StaticTexture ?? (StaticTexture = GetTexture()); }
@@ -33,10 +38,15 @@ namespace ThakurEscape.GameObjects
 
         internal static Texture2D StaticTexture { get; set; }
 
-        internal static Eint LoadEint(char tileType, int row, int column)
+        //internal static Eint LoadEint(char tileType, float x, float y, float width, float height)
+        //{
+        //    return LoadEint(tileType, new Vector2(x, y), width, height);
+        //}
+
+        internal static Eint LoadEint(char tileType, Vector2 position, float width, float height)
         {
             if (tileType == '#')
-                return new Eint(AintTextureType.BlackAndWhite, row, column);
+                return new Eint(AintTextureType.BlackAndWhite, position, width, height);
 
             throw new NotImplementedException();
         }

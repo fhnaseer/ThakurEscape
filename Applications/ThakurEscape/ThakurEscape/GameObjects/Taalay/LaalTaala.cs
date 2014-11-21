@@ -5,8 +5,13 @@ namespace ThakurEscape.GameObjects.Taalay
 {
     class LaalTaala : TaalaBase
     {
-        public LaalTaala(int rowPosition, int columnPosition)
-            : base(rowPosition, columnPosition)
+        //public LaalTaala(float x, float y, float width, float height)
+        //    : this (new Vector2(x,y), width, height)
+        //{
+        //}
+
+        public LaalTaala(Vector2 position, float width, float height) 
+            : base(position, width, height)
         {
         }
 

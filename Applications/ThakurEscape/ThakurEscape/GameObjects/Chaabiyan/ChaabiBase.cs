@@ -5,17 +5,15 @@ namespace ThakurEscape.GameObjects.Chaabiyan
 {
     internal abstract class ChaabiBase : GameObjectBase
     {
-        protected ChaabiBase(int rowPosition, int columnPosition)
-            : base(rowPosition, columnPosition)
+        //protected ChaabiBase(float x, float y, float width, float height)
+        //    : this (new Vector2(x,y), width, height)
+        //{
+        //}
+
+        protected ChaabiBase(Vector2 position, float width, float height) 
+            : base(position, width, height)
         {
         }
-
-        internal override Texture2D Texture
-        {
-            get { return StaticTexture ?? (StaticTexture = GetTexture()); }
-        }
-
-        internal static Texture2D StaticTexture { get; set; }
 
         protected abstract ChaabiType ChaabiType { get; }
         protected abstract Color Color { get; }

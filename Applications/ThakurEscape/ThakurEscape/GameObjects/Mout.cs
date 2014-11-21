@@ -5,7 +5,13 @@ namespace ThakurEscape.GameObjects
 {
     class Mout : GameObjectBase
     {
-        public Mout(int rowPosition, int columnPosition) : base(rowPosition, columnPosition)
+        //public Mout(float x, float y, float width, float height)
+        //    : this (new Vector2(x,y), width, height)
+        //{
+        //}
+
+        public Mout(Vector2 position, float width, float height) 
+            : base(position, width, height)
         {
         }
 

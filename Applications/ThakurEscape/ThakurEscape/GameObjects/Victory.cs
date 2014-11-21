@@ -5,7 +5,13 @@ namespace ThakurEscape.GameObjects
 {
     class Victory : GameObjectBase
     {
-        public Victory(int rowPosition, int columnPosition) : base(rowPosition, columnPosition)
+        //public Victory(float x, float y, float width, float height)
+        //    : this (new Vector2(x,y), width, height)
+        //{
+        //}
+
+        public Victory(Vector2 position, float width, float height) 
+            : base(position, width, height)
         {
         }
 

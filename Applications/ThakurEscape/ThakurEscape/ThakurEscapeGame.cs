@@ -1,9 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
-using ThakurEscape.GameObjects;
+using ThakurEscape.Screens;
 
 namespace ThakurEscape
 {
@@ -12,20 +12,77 @@ namespace ThakurEscape
     /// </summary>
     public class ThakurEscapeGame : Game
     {
-        internal static float GameWidth; 
-        internal static float GameHeight;
+        internal enum ScreenType
+        {
+            MainMenu,
+            LevelSelector,
+            Game,
+            Exit
+        };
+
+        internal static float GameWidth { get; set; }
+        internal static float GameHeight { get; set; }
 
         internal static ContentManager GameContent { get; private set; }
         public GraphicsDeviceManager Graphics { get; set; }
+        private SpriteBatch _spriteBatch;
+        private ScreenType _currentScreenType;
+        private ScreenBase _currentScreen;
+        private int _currentLevelNumber = 1;
 
-        SpriteBatch _spriteBatch;
-        private Level _level;
+        private MainScreen _mainScreen;
+        internal MainScreen MainScreen
+        {
+            get
+            {
+                if (_mainScreen != null) return _mainScreen;
+                _mainScreen = new MainScreen();
+                _mainScreen.ChangeScreen += OnChangeScreen;
+                return _mainScreen;
+            }
+        }
+
+        private void OnChangeScreen(object sender, ScreenType screenType)
+        {
+            _currentScreenType = screenType;
+            switch (_currentScreenType)
+            {
+                case ScreenType.MainMenu:
+                    _currentScreen = MainScreen;
+                    break;
+                case ScreenType.LevelSelector:
+                    _currentScreen = LevelSelectorScreen;
+                    break;
+                case ScreenType.Game:
+                    _currentScreen = LevelScreen;
+                    break;
+                case ScreenType.Exit:
+                    Exit();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("screenType");
+            }
+        }
+
+        private LevelSelectorScreen _levelSelectorScreen;
+        internal LevelSelectorScreen LevelSelectorScreen
+        {
+            get { return _levelSelectorScreen ?? (_levelSelectorScreen = new LevelSelectorScreen()); }
+        }
+
+        private LevelScreen _levelScreen;
+        internal LevelScreen LevelScreen
+        {
+            get { return _levelScreen ?? (_levelScreen = new LevelScreen(_currentLevelNumber)); }
+        }
 
         public ThakurEscapeGame()
         {
             Graphics = new GraphicsDeviceManager(this);
             GameContent = Content;
             GameContent.RootDirectory = "Content";
+            _currentScreenType = ScreenType.MainMenu;
+            _currentScreen = MainScreen;
         }
 
         /// <summary>
@@ -36,12 +93,12 @@ namespace ThakurEscape
         /// </summary>
         protected override void Initialize()
         {
-            _level = new Level();
-            TouchPanel.EnabledGestures = GestureType.Pinch | GestureType.PinchComplete |
-                GestureType.VerticalDrag | GestureType.HorizontalDrag | GestureType.DragComplete;
-
             GameWidth = GraphicsDevice.Viewport.Width;
             GameHeight = GraphicsDevice.Viewport.Height;
+
+            TouchPanel.EnabledGestures = GestureType.VerticalDrag | GestureType.HorizontalDrag | GestureType.DragComplete |
+                GestureType.Tap;
+
             base.Initialize();
         }
 
@@ -53,10 +110,6 @@ namespace ThakurEscape
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            //var playerPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X,
-            //    GraphicsDevice.Viewport.TitleSafeArea.Y + GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
-            //_player.Initialize(Content.Load<Texture2D>("Graphics\\player\\Akram.png"), playerPosition); 
         }
 
         /// <summary>
@@ -75,7 +128,7 @@ namespace ThakurEscape
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            HandleInput();
+            _currentScreen.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -87,154 +140,11 @@ namespace ThakurEscape
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            //_spriteBatch.Begin();
-
-            _level.Draw(_spriteBatch);
-
-            //_spriteBatch.End();
+            GameWidth = GraphicsDevice.Viewport.Width;
+            GameHeight = GraphicsDevice.Viewport.Height;
+            _currentScreen.Draw(_spriteBatch);
 
             base.Draw(gameTime);
-        }
-
-        private void HandleInput()
-        {
-            HandleTouchInput();
-            HandleKeyboardInput();
-        }
-
-        bool _pinching;
-        float _pinchInitialDistance;
-        private void HandleTouchInput()
-        {
-            while (TouchPanel.IsGestureAvailable)
-            {
-                GestureSample gesture = TouchPanel.ReadGesture();
-
-                if (gesture.GestureType == GestureType.Pinch)
-                {
-                    // current positions
-                    Vector2 a = gesture.Position;
-                    Vector2 b = gesture.Position2;
-                    float dist = Vector2.Distance(a, b);
-
-                    // prior positions
-                    Vector2 aOld = gesture.Position - gesture.Delta;
-                    Vector2 bOld = gesture.Position2 - gesture.Delta2;
-                    float distOld = Vector2.Distance(aOld, bOld);
-
-                    if (!_pinching)
-                    {
-                        // start of pinch, record original distance
-                        _pinching = true;
-                        _pinchInitialDistance = distOld;
-                    }
-
-                    // work out zoom amount based on pinch distance...
-                    float scale = (distOld - dist) * 0.05f;
-                    ZoomBy(scale);
-                }
-                else if (gesture.GestureType == GestureType.PinchComplete)
-                {
-                    // end of pinch
-                    _pinching = false;
-                }
-                else if (gesture.GestureType == GestureType.VerticalDrag)
-                {
-                    var currentPosition = gesture.Position;
-                    _moveTo = currentPosition.Y > _tempPosition.Y ? KidherChalayHoBadshaho.Neechay : KidherChalayHoBadshaho.Ooper;
-                    _tempPosition = currentPosition;
-                }
-                else if (gesture.GestureType == GestureType.HorizontalDrag)
-                {
-                    var currentPosition = gesture.Position;
-                    _moveTo = currentPosition.X > _tempPosition.X ? KidherChalayHoBadshaho.Daain : KidherChalayHoBadshaho.Baain;
-                    _tempPosition = currentPosition;
-                }
-                else if (gesture.GestureType == GestureType.DragComplete)
-                {
-                    _level.MovePlayer(_moveTo);
-                }
-            }
-        }
-
-        private bool _downDown;
-        private bool _upDown;
-        private bool _leftDown;
-        private bool _rightDown;
-        private void HandleKeyboardInput()
-        {
-            var gamePadState = GamePad.GetState(PlayerIndex.One);
-            var keyboardState = Keyboard.GetState();
-            if (gamePadState.IsButtonDown(Buttons.DPadLeft) ||
-                keyboardState.IsKeyDown(Keys.Left) ||
-                keyboardState.IsKeyDown(Keys.A))
-            {
-                _leftDown = true;
-                _upDown = _downDown = _rightDown = false;
-            }
-            else if (gamePadState.IsButtonDown(Buttons.DPadRight) ||
-                     keyboardState.IsKeyDown(Keys.Right) ||
-                     keyboardState.IsKeyDown(Keys.D))
-            {
-                _rightDown = true;
-                _upDown = _leftDown = _leftDown = false;
-            }
-            else if (gamePadState.IsButtonDown(Buttons.DPadUp) ||
-                     keyboardState.IsKeyDown(Keys.Up) ||
-                     keyboardState.IsKeyDown(Keys.W))
-            {
-                _upDown = true;
-                _downDown = _leftDown = _rightDown = false;
-            }
-            else if (gamePadState.IsButtonDown(Buttons.DPadDown) ||
-                     keyboardState.IsKeyDown(Keys.Down) ||
-                     keyboardState.IsKeyDown(Keys.S))
-            {
-                _downDown = true;
-                _upDown = _leftDown = _rightDown = false;
-            }
-
-            if (gamePadState.IsButtonUp(Buttons.DPadLeft) && keyboardState.IsKeyUp(Keys.Left) && keyboardState.IsKeyUp(Keys.A))
-            {
-                if (_leftDown)
-                {
-                    _upDown = _downDown = _leftDown = _rightDown = false;
-                    _level.MovePlayer(KidherChalayHoBadshaho.Baain);
-                }
-            }
-            if (gamePadState.IsButtonUp(Buttons.DPadRight) && keyboardState.IsKeyUp(Keys.Right) && keyboardState.IsKeyUp(Keys.D))
-            {
-                if (_rightDown)
-                {
-                    _upDown = _downDown = _leftDown = _rightDown = false;
-                    _level.MovePlayer(KidherChalayHoBadshaho.Daain);
-                }
-            }
-            if (gamePadState.IsButtonUp(Buttons.DPadUp) && keyboardState.IsKeyUp(Keys.Up) && keyboardState.IsKeyUp(Keys.W))
-            {
-                if (_upDown)
-                {
-                    _upDown = _downDown = _leftDown = _rightDown = false;
-                    _level.MovePlayer(KidherChalayHoBadshaho.Ooper);
-                }
-            }
-            if (gamePadState.IsButtonUp(Buttons.DPadDown) && keyboardState.IsKeyUp(Keys.Down) && keyboardState.IsKeyUp(Keys.S))
-            {
-                if (_downDown)
-                {
-                    _upDown = _downDown = _leftDown = _rightDown = false;
-                    _level.MovePlayer(KidherChalayHoBadshaho.Neechay);
-                }
-            }
-        }
-
-        private Vector2 _tempPosition;
-        private KidherChalayHoBadshaho _moveTo;
-
-        private void ZoomBy(float scale)
-        {
-            //throw new System.NotImplementedException();
         }
     }
 }
