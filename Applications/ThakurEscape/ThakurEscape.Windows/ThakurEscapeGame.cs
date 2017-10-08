@@ -1,21 +1,88 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Input.Touch;
+using ThakurEscape.Windows.Screens;
 
 namespace ThakurEscape.Windows
 {
     /// <summary>
-    /// This is the main type for your game.
+    /// This is the main type for your game
     /// </summary>
     public class ThakurEscapeGame : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        internal enum ScreenType
+        {
+            MainMenu,
+            LevelSelector,
+            Game,
+            Exit
+        };
+
+        internal static float GameWidth { get; set; }
+        internal static float GameHeight { get; set; }
+
+        internal static ContentManager GameContent { get; private set; }
+        public GraphicsDeviceManager Graphics { get; set; }
+        private SpriteBatch _spriteBatch;
+        private ScreenType _currentScreenType;
+        private ScreenBase _currentScreen;
+        private int _currentLevelNumber = 1;
+
+        private MainScreen _mainScreen;
+        internal MainScreen MainScreen
+        {
+            get
+            {
+                if (_mainScreen != null) return _mainScreen;
+                _mainScreen = new MainScreen();
+                _mainScreen.ChangeScreen += OnChangeScreen;
+                return _mainScreen;
+            }
+        }
+
+        private void OnChangeScreen(object sender, ScreenType screenType)
+        {
+            _currentScreenType = screenType;
+            switch (_currentScreenType)
+            {
+                case ScreenType.MainMenu:
+                    _currentScreen = MainScreen;
+                    break;
+                case ScreenType.LevelSelector:
+                    _currentScreen = LevelSelectorScreen;
+                    break;
+                case ScreenType.Game:
+                    _currentScreen = LevelScreen;
+                    break;
+                case ScreenType.Exit:
+                    Exit();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("screenType");
+            }
+        }
+
+        private LevelSelectorScreen _levelSelectorScreen;
+        internal LevelSelectorScreen LevelSelectorScreen
+        {
+            get { return _levelSelectorScreen ?? (_levelSelectorScreen = new LevelSelectorScreen()); }
+        }
+
+        private LevelScreen _levelScreen;
+        internal LevelScreen LevelScreen
+        {
+            get { return _levelScreen ?? (_levelScreen = new LevelScreen(_currentLevelNumber)); }
+        }
 
         public ThakurEscapeGame()
         {
-            graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            Graphics = new GraphicsDeviceManager(this);
+            GameContent = Content;
+            GameContent.RootDirectory = "Content";
+            _currentScreenType = ScreenType.MainMenu;
+            _currentScreen = MainScreen;
         }
 
         /// <summary>
@@ -26,7 +93,11 @@ namespace ThakurEscape.Windows
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            GameWidth = GraphicsDevice.Viewport.Width;
+            GameHeight = GraphicsDevice.Viewport.Height;
+
+            TouchPanel.EnabledGestures = GestureType.VerticalDrag | GestureType.HorizontalDrag | GestureType.DragComplete |
+                GestureType.Tap;
 
             base.Initialize();
         }
@@ -38,14 +109,12 @@ namespace ThakurEscape.Windows
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
-        /// game-specific content.
+        /// all content.
         /// </summary>
         protected override void UnloadContent()
         {
@@ -59,10 +128,7 @@ namespace ThakurEscape.Windows
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            // TODO: Add your update logic here
+            _currentScreen.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -74,8 +140,9 @@ namespace ThakurEscape.Windows
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
+            GameWidth = GraphicsDevice.Viewport.Width;
+            GameHeight = GraphicsDevice.Viewport.Height;
+            _currentScreen.Draw(_spriteBatch);
 
             base.Draw(gameTime);
         }

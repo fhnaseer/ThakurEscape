@@ -45,6 +45,47 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="GameObjects\Arrows\ArrowBase.cs" />
+    <Compile Include="GameObjects\Arrows\DownArrow.cs" />
+    <Compile Include="GameObjects\Arrows\LeftArrow.cs" />
+    <Compile Include="GameObjects\Arrows\RightArrow.cs" />
+    <Compile Include="GameObjects\Arrows\UpArrow.cs" />
+    <Compile Include="GameObjects\Chaabiyan\ChaabiBase.cs" />
+    <Compile Include="GameObjects\Chaabiyan\LaalChaabi.cs" />
+    <Compile Include="GameObjects\Chaabiyan\SabzChaabi.cs" />
+    <Compile Include="GameObjects\Constants.cs" />
+    <Compile Include="GameObjects\Dirwaazay\DirwaazaBase.cs" />
+    <Compile Include="GameObjects\Dirwaazay\LaalDirwaaza.cs" />
+    <Compile Include="GameObjects\Dirwaazay\SabzDirwaaza.cs" />
+    <Compile Include="GameObjects\Eint.cs" />
+    <Compile Include="GameObjects\Enums.cs" />
+    <Compile Include="GameObjects\Fonts\FontBase.cs" />
+    <Compile Include="GameObjects\Fonts\Segoe.cs" />
+    <Compile Include="GameObjects\GameObjectBase.cs" />
+    <Compile Include="GameObjects\Level.cs" />
+    <Compile Include="GameObjects\Menus\ExitGame.cs" />
+    <Compile Include="GameObjects\Menus\NewGame.cs" />
+    <Compile Include="GameObjects\Mout.cs" />
+    <Compile Include="GameObjects\NextBoard.cs" />
+    <Compile Include="GameObjects\NextScreen.cs" />
+    <Compile Include="GameObjects\Paisa.cs" />
+    <Compile Include="GameObjects\Taalay\LaalTaala.cs" />
+    <Compile Include="GameObjects\Taalay\SabzTaala.cs" />
+    <Compile Include="GameObjects\Taalay\TaalaBase.cs" />
+    <Compile Include="GameObjects\Taaqat.cs" />
+    <Compile Include="GameObjects\Thakur.cs" />
+    <Compile Include="GameObjects\Victory.cs" />
+    <Compile Include="Screens\BoardScreen.cs" />
+    <Compile Include="Screens\FullScreenBase.cs" />
+    <Compile Include="Screens\LevelControllerScreen.cs" />
+    <Compile Include="Screens\LevelScreen.cs" />
+    <Compile Include="Screens\LevelSelectorScreen.cs" />
+    <Compile Include="Screens\MainScreen.cs" />
+    <Compile Include="Screens\ScreenBase.cs" />
+    <Compile Include="Storage\BoardStorage.cs" />
+    <Compile Include="Storage\GameStorage.cs" />
+    <Compile Include="Storage\LevelStorage.cs" />
     <Compile Include="ThakurEscapeGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,12 +98,68 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Content\Graphics\Chaabi.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Graphics\Dirwaaza.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Graphics\ExitGame.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Graphics\LeftArrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Graphics\Mout.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Graphics\NewGame.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Graphics\Paisa.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Graphics\Player\Akram.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Graphics\Taala.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Graphics\Taaqat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Graphics\TopArrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Graphics\Victory.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Messages\LevelCompleted.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Messages\LevelFailed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Thakur\Thakur.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tiles\BlockA1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
+    <Content Include="Content\Fonts\Segoe.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
