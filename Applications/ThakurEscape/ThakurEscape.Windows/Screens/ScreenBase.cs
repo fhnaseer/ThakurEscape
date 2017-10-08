@@ -32,8 +32,7 @@ namespace ThakurEscape.Windows.Screens
         public event ChangeEventHandler ChangeScreen;
         internal virtual void OnChangeScreen(ThakurEscapeGame.ScreenType screenType)
         {
-            if (ChangeScreen != null)
-                ChangeScreen(this, screenType);
+            ChangeScreen?.Invoke(this, screenType);
         }
     }
 }

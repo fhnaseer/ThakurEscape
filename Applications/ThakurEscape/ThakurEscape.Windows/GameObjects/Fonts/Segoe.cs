@@ -8,8 +8,7 @@ namespace ThakurEscape.Windows.GameObjects.Fonts
         private Segoe() { }
 
         // ReSharper disable once InconsistentNaming
-        private static readonly Segoe _instance = new Segoe();
-        public static Segoe Instance => _instance;
+        public static Segoe Instance { get; } = new Segoe();
 
         internal override SpriteFont SpriteFont => StaticSpriteFont ?? (StaticSpriteFont = GetTexture());
 

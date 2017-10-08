@@ -21,7 +21,7 @@ namespace ThakurEscape.Windows.Screens
             BoardNumber = boardNumber;
         }
 
-        internal int LevelNumber { get; private set; }
+        internal int LevelNumber { get; }
         internal int BoardNumber { get; private set; }
 
         internal int Rows { get; private set; }
@@ -102,27 +102,27 @@ namespace ThakurEscape.Windows.Screens
                             break;
                         case 'd':
                             _gameObjects[row][column] = new SabzDirwaaza(relativePosition, GameObjectWidth, GameObjectHeight);
-                            _dirwaazay.Add(_gameObjects[row][column] as DirwaazaBase);
+                            _dirwaazay.Add((DirwaazaBase)_gameObjects[row][column]);
                             break;
                         case 'c':
                             _gameObjects[row][column] = new SabzChaabi(relativePosition, GameObjectWidth, GameObjectHeight);
-                            _chaabiyaan.Add(_gameObjects[row][column] as ChaabiBase);
+                            _chaabiyaan.Add((ChaabiBase)_gameObjects[row][column]);
                             break;
                         case 't':
                             _gameObjects[row][column] = new SabzTaala(relativePosition, GameObjectWidth, GameObjectHeight);
-                            _taalay.Add(_gameObjects[row][column] as TaalaBase);
+                            _taalay.Add((TaalaBase)_gameObjects[row][column]);
                             break;
                         case 'D':
                             _gameObjects[row][column] = new LaalDirwaaza(relativePosition, GameObjectWidth, GameObjectHeight);
-                            _dirwaazay.Add(_gameObjects[row][column] as DirwaazaBase);
+                            _dirwaazay.Add((DirwaazaBase)_gameObjects[row][column]);
                             break;
                         case 'C':
                             _gameObjects[row][column] = new LaalChaabi(relativePosition, GameObjectWidth, GameObjectHeight);
-                            _chaabiyaan.Add(_gameObjects[row][column] as ChaabiBase);
+                            _chaabiyaan.Add((ChaabiBase)_gameObjects[row][column]);
                             break;
                         case 'T':
                             _gameObjects[row][column] = new LaalTaala(relativePosition, GameObjectWidth, GameObjectHeight);
-                            _taalay.Add(_gameObjects[row][column] as TaalaBase);
+                            _taalay.Add((TaalaBase)_gameObjects[row][column]);
                             break;
                         case 'V':
                             _gameObjects[row][column] = new Victory(relativePosition, GameObjectWidth, GameObjectHeight);
