@@ -1,8 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
-using ThakurEscape.Windows.GameObjects.Menus;
+using ThakurEscape.GameObjects.Menus;
 
-namespace ThakurEscape.Windows.Screens
+namespace ThakurEscape.Screens
 {
     internal class MainScreen : FullScreenBase
     {
@@ -36,6 +37,7 @@ namespace ThakurEscape.Windows.Screens
         internal override void HandleInput()
         {
             HandleTouchInput();
+            HandleMouseInput();
             HandleKeyboardInput();
         }
 
@@ -47,6 +49,19 @@ namespace ThakurEscape.Windows.Screens
 
                 if (gesture.GestureType != GestureType.Tap) continue;
                 var position = gesture.Position;
+                if (NewGame.BoundingRectangle.Contains(position))
+                    OnChangeScreen(ThakurEscapeGame.ScreenType.Game);
+                if (ExitGame.BoundingRectangle.Contains(position))
+                    OnChangeScreen(ThakurEscapeGame.ScreenType.Exit);
+            }
+        }
+
+        private void HandleMouseInput()
+        {
+            var mouseState = Mouse.GetState();
+            if (mouseState.LeftButton == ButtonState.Pressed)
+            {
+                var position = new Point(mouseState.X, mouseState.Y);
                 if (NewGame.BoundingRectangle.Contains(position))
                     OnChangeScreen(ThakurEscapeGame.ScreenType.Game);
                 if (ExitGame.BoundingRectangle.Contains(position))

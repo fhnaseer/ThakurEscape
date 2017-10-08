@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ThakurEscape.Windows.GameObjects.Menus
+namespace ThakurEscape.GameObjects.Menus
 {
     public class NewGame : GameObjectBase
     {

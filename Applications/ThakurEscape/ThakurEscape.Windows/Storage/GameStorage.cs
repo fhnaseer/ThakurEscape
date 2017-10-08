@@ -4,7 +4,7 @@
 
 using System.Linq;
 
-namespace ThakurEscape.Windows.Storage
+namespace ThakurEscape.Storage
 {
     internal static class GameStorage
     {

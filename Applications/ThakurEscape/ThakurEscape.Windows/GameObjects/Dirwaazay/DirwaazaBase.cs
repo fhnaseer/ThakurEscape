@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ThakurEscape.Windows.GameObjects.Dirwaazay
+namespace ThakurEscape.GameObjects.Dirwaazay
 {
     public abstract class DirwaazaBase : GameObjectBase
     {

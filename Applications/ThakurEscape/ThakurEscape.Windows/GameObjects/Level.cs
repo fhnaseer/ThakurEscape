@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework.Graphics;
-using ThakurEscape.Windows.GameObjects.Arrows;
-using ThakurEscape.Windows.GameObjects.Dirwaazay;
-using ThakurEscape.Windows.GameObjects.Keys;
-using ThakurEscape.Windows.GameObjects.Taalay;
-using ThakurEscape.Windows.Screens;
+using ThakurEscape.GameObjects.Arrows;
+using ThakurEscape.GameObjects.Dirwaazay;
+using ThakurEscape.GameObjects.Keys;
+using ThakurEscape.GameObjects.Taalay;
+using ThakurEscape.Screens;
 
-namespace ThakurEscape.Windows.GameObjects
+namespace ThakurEscape.GameObjects
 {
     public enum LevelStatus
     {

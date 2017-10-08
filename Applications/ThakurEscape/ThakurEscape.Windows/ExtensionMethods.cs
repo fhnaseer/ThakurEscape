@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace ThakurEscape.Windows
+namespace ThakurEscape
 {
     public static class ExtensionMethods
     {

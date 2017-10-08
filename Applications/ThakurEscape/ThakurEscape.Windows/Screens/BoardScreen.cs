@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ThakurEscape.Windows.GameObjects;
-using ThakurEscape.Windows.GameObjects.Arrows;
-using ThakurEscape.Windows.GameObjects.Dirwaazay;
-using ThakurEscape.Windows.GameObjects.Keys;
-using ThakurEscape.Windows.GameObjects.Taalay;
-using ThakurEscape.Windows.Storage;
+using ThakurEscape.GameObjects;
+using ThakurEscape.GameObjects.Arrows;
+using ThakurEscape.GameObjects.Dirwaazay;
+using ThakurEscape.GameObjects.Keys;
+using ThakurEscape.GameObjects.Taalay;
+using ThakurEscape.Storage;
 
-namespace ThakurEscape.Windows.Screens
+namespace ThakurEscape.Screens
 {
     internal class BoardScreen : ScreenBase
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ThakurEscape.Windows.GameObjects.Arrows
+namespace ThakurEscape.GameObjects.Arrows
 {
     internal class RightArrow : ArrowBase
     {

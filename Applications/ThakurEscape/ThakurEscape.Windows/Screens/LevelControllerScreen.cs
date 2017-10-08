@@ -3,12 +3,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
-using ThakurEscape.Windows.GameObjects;
-using ThakurEscape.Windows.GameObjects.Arrows;
-using ThakurEscape.Windows.GameObjects.Fonts;
-using ThakurEscape.Windows.GameObjects.Keys;
+using ThakurEscape.GameObjects;
+using ThakurEscape.GameObjects.Arrows;
+using ThakurEscape.GameObjects.Fonts;
+using ThakurEscape.GameObjects.Keys;
 
-namespace ThakurEscape.Windows.Screens
+namespace ThakurEscape.Screens
 {
     internal class LevelControllerScreen : ScreenBase
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace ThakurEscape.Windows.Storage
+namespace ThakurEscape.Storage
 {
     internal static class BoardsStorageData
     {

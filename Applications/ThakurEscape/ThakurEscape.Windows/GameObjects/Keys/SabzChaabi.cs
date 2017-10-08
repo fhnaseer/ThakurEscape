@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ThakurEscape.Windows.GameObjects.Keys
+namespace ThakurEscape.GameObjects.Keys
 {
     public class SabzChaabi : ChaabiBase
     {

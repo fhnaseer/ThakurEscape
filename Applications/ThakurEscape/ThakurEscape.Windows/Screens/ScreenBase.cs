@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ThakurEscape.Windows.Screens
+namespace ThakurEscape.Screens
 {
     internal delegate void ChangeEventHandler(object sender, ThakurEscapeGame.ScreenType e);
 

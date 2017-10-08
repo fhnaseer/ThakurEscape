@@ -1,4 +1,4 @@
-﻿namespace ThakurEscape.Windows.Screens
+﻿namespace ThakurEscape.Screens
 {
     internal class LevelSelectorScreen : FullScreenBase
     {

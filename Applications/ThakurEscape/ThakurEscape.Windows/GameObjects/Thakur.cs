@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ThakurEscape.Windows.GameObjects
+namespace ThakurEscape.GameObjects
 {
     internal class Thakur : GameObjectBase
     {

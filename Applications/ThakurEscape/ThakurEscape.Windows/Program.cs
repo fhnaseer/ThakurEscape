@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ThakurEscape.Windows
+namespace ThakurEscape
 {
 #if WINDOWS || LINUX
     /// <summary>

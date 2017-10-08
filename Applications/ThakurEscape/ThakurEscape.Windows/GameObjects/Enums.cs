@@ -1,4 +1,4 @@
-﻿namespace ThakurEscape.Windows.GameObjects
+﻿namespace ThakurEscape.GameObjects
 {
     public enum EintTextureType
     {

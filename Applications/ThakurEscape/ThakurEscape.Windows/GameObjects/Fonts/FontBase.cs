@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ThakurEscape.Windows.GameObjects.Fonts
+namespace ThakurEscape.GameObjects.Fonts
 {
     internal abstract class FontBase
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ThakurEscape.Windows.GameObjects;
-using ThakurEscape.Windows.Storage;
+using ThakurEscape.GameObjects;
+using ThakurEscape.Storage;
 
-namespace ThakurEscape.Windows.Screens
+namespace ThakurEscape.Screens
 {
     internal enum LevelStatus
     {

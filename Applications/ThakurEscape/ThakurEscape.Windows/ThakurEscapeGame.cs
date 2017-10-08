@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
-using ThakurEscape.Windows.Screens;
+using ThakurEscape.Screens;
 
-namespace ThakurEscape.Windows
+namespace ThakurEscape
 {
     /// <summary>
     /// This is the main type for your game
@@ -72,7 +72,13 @@ namespace ThakurEscape.Windows
 
         public ThakurEscapeGame()
         {
+            IsMouseVisible = true;
             Graphics = new GraphicsDeviceManager(this);
+            GameWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;//GraphicsDevice.Viewport.Width;
+            GameHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height; //GraphicsDevice.Viewport.Height;
+            Graphics.IsFullScreen = false;
+            Graphics.PreferredBackBufferHeight = (int)GameHeight;
+            Graphics.PreferredBackBufferWidth = (int)GameWidth;
             GameContent = Content;
             GameContent.RootDirectory = "Content";
             _currentScreenType = ScreenType.LevelSelector;
@@ -87,8 +93,7 @@ namespace ThakurEscape.Windows
         /// </summary>
         protected override void Initialize()
         {
-            GameWidth = GraphicsDevice.Viewport.Width;
-            GameHeight = GraphicsDevice.Viewport.Height;
+
 
             TouchPanel.EnabledGestures = GestureType.VerticalDrag | GestureType.HorizontalDrag | GestureType.DragComplete |
                 GestureType.Tap;
@@ -134,8 +139,8 @@ namespace ThakurEscape.Windows
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            GameWidth = GraphicsDevice.Viewport.Width;
-            GameHeight = GraphicsDevice.Viewport.Height;
+            GameWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;//GraphicsDevice.Viewport.Width;
+            GameHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height; //GraphicsDevice.Viewport.Height;
             _currentScreen.Draw(_spriteBatch);
 
             base.Draw(gameTime);
