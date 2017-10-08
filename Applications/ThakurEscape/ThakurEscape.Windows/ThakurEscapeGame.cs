@@ -60,28 +60,22 @@ namespace ThakurEscape.Windows
                     Exit();
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("screenType");
+                    throw new ArgumentOutOfRangeException(nameof(screenType));
             }
         }
 
         private LevelSelectorScreen _levelSelectorScreen;
-        internal LevelSelectorScreen LevelSelectorScreen
-        {
-            get { return _levelSelectorScreen ?? (_levelSelectorScreen = new LevelSelectorScreen()); }
-        }
+        internal LevelSelectorScreen LevelSelectorScreen => _levelSelectorScreen ?? (_levelSelectorScreen = new LevelSelectorScreen());
 
         private LevelScreen _levelScreen;
-        internal LevelScreen LevelScreen
-        {
-            get { return _levelScreen ?? (_levelScreen = new LevelScreen(_currentLevelNumber)); }
-        }
+        internal LevelScreen LevelScreen => _levelScreen ?? (_levelScreen = new LevelScreen(_currentLevelNumber));
 
         public ThakurEscapeGame()
         {
             Graphics = new GraphicsDeviceManager(this);
             GameContent = Content;
             GameContent.RootDirectory = "Content";
-            _currentScreenType = ScreenType.MainMenu;
+            _currentScreenType = ScreenType.LevelSelector;
             _currentScreen = MainScreen;
         }
 

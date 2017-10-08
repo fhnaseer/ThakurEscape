@@ -1,42 +1,42 @@
 ﻿namespace ThakurEscape.Windows.GameObjects
 {
-    enum AintTextureType
+    public enum EintTextureType
     {
         BlackAndWhite
     }
 
-    enum ChaabiType
+    public enum ChaabiType
     {
         Sabz,
         Laal
     }
 
-    enum DirwaazaType
+    public enum DirwaazaType
     {
         Sabz,
         Laal
     }
 
-    enum TaalaType
+    public enum TaalaType
     {
         Sabz,
         Laal
     }
 
-    enum KidherChalayHoBadshaho
+    public enum MovementDirection
     {
-        Daain,
-        Baain,
-        Ooper,
-        Neechay,
-        KahinBhiNahin
+        Right,
+        Left,
+        Up,
+        Down,
+        None
     }
 
-    enum Simat
+    public enum Direction
     {
-        Daain,
-        Baain,
-        Ooper,
-        Neechay
+        Right,
+        Left,
+        Up,
+        Down
     }
 }

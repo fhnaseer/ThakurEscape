@@ -3,17 +3,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Windows.GameObjects.Menus
 {
-    class NewGame : GameObjectBase
+    public class NewGame : GameObjectBase
     {
         public NewGame(Vector2 position, float width, float height)
             : base(position, width, height)
         {
         }
 
-        internal override Texture2D Texture
-        {
-            get { return StaticTexture ?? (StaticTexture = GetTexture()); }
-        }
+        internal override Texture2D Texture => StaticTexture ?? (StaticTexture = GetTexture());
 
         internal static Texture2D StaticTexture { get; set; }
 

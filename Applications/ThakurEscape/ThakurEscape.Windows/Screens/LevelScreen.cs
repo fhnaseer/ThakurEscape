@@ -5,7 +5,7 @@ using ThakurEscape.Windows.Storage;
 
 namespace ThakurEscape.Windows.Screens
 {
-    enum LevelStatus
+    internal enum LevelStatus
     {
         InProgress,
         Completed,
@@ -40,6 +40,7 @@ namespace ThakurEscape.Windows.Screens
         private readonly LevelControllerScreen _levelController = new LevelControllerScreen();
 
         internal Thakur Thakur { get; private set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal LevelStatus LevelStatus { get; private set; }
 
         internal override void Draw(SpriteBatch spriteBatch)

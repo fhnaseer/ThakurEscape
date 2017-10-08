@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Windows.GameObjects.Taalay
 {
-    abstract class TaalaBase : GameObjectBase
+    public abstract class TaalaBase : GameObjectBase
     {
         //protected TaalaBase(float x, float y, float width, float height)
         //    : this (new Vector2(x,y), width, height)

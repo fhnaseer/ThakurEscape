@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Windows.GameObjects
 {
-    class NextScreen : GameObjectBase
+    public class NextScreen : GameObjectBase
     {
         public NextScreen(float x, float y, float width, float height)
             : this(new Vector2(x, y), width, height)
@@ -15,10 +15,7 @@ namespace ThakurEscape.Windows.GameObjects
         {
         }
 
-        internal override Texture2D Texture
-        {
-            get { return StaticTexture ?? (StaticTexture = GetTexture()); }
-        }
+        internal override Texture2D Texture => StaticTexture ?? (StaticTexture = GetTexture());
 
         internal static Texture2D StaticTexture { get; set; }
 

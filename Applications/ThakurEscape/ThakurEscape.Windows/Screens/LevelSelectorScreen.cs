@@ -1,6 +1,6 @@
 ﻿namespace ThakurEscape.Windows.Screens
 {
-    class LevelSelectorScreen : FullScreenBase
+    internal class LevelSelectorScreen : FullScreenBase
     {
         internal override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {

@@ -6,10 +6,11 @@ using System.Linq;
 
 namespace ThakurEscape.Windows.Storage
 {
-    static class GameStorage
+    internal static class GameStorage
     {
         //const string FileName = "data.levels";
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public static void WriteLevels()
         {
             //var dataFile = IsolatedStorageFile.UserStoreForApplication;

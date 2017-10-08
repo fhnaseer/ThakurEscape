@@ -28,6 +28,9 @@
     <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -37,6 +40,9 @@
     <DefineConstants>TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
@@ -51,9 +57,9 @@
     <Compile Include="GameObjects\Arrows\LeftArrow.cs" />
     <Compile Include="GameObjects\Arrows\RightArrow.cs" />
     <Compile Include="GameObjects\Arrows\UpArrow.cs" />
-    <Compile Include="GameObjects\Chaabiyan\ChaabiBase.cs" />
-    <Compile Include="GameObjects\Chaabiyan\LaalChaabi.cs" />
-    <Compile Include="GameObjects\Chaabiyan\SabzChaabi.cs" />
+    <Compile Include="GameObjects\Keys\ChaabiBase.cs" />
+    <Compile Include="GameObjects\Keys\LaalChaabi.cs" />
+    <Compile Include="GameObjects\Keys\SabzChaabi.cs" />
     <Compile Include="GameObjects\Constants.cs" />
     <Compile Include="GameObjects\Dirwaazay\DirwaazaBase.cs" />
     <Compile Include="GameObjects\Dirwaazay\LaalDirwaaza.cs" />
@@ -76,6 +82,7 @@
     <Compile Include="GameObjects\Taaqat.cs" />
     <Compile Include="GameObjects\Thakur.cs" />
     <Compile Include="GameObjects\Victory.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Screens\BoardScreen.cs" />
     <Compile Include="Screens\FullScreenBase.cs" />
     <Compile Include="Screens\LevelControllerScreen.cs" />
@@ -102,6 +109,7 @@
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
+    <CodeAnalysisDictionary Include="CodeAnalysisDictionary.xml" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>

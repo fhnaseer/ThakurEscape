@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Windows.GameObjects.Arrows
 {
-    class DownArrow : ArrowBase
+    internal class DownArrow : ArrowBase
     {
         public DownArrow(float x, float y, float width, float height)
             : this(new Vector2(x, y), width, height)
@@ -15,18 +15,12 @@ namespace ThakurEscape.Windows.GameObjects.Arrows
         {
         }
 
-        internal override Texture2D Texture
-        {
-            get { return StaticTexture ?? (StaticTexture = GetTexture()); }
-        }
+        internal override Texture2D Texture => StaticTexture ?? (StaticTexture = GetTexture());
 
         internal static Texture2D StaticTexture { get; set; }
 
-        protected override SpriteEffects SpriteEffect { get { return SpriteEffects.FlipVertically; } }
+        protected override SpriteEffects SpriteEffect => SpriteEffects.FlipVertically;
 
-        protected override Simat ArrowDirection
-        {
-            get { return Simat.Neechay; }
-        }
+        protected override Direction ArrowDirection => Direction.Down;
     }
 }

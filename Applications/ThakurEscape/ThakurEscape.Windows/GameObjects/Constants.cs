@@ -1,6 +1,6 @@
 ﻿namespace ThakurEscape.Windows.GameObjects
 {
-    static class Constants
+    internal static class Constants
     {
         public const string GraphicsFolderName = "Graphics";
         public const string TilesFolderName = "Tiles";
@@ -27,80 +27,35 @@
 
         public const string SegoeImageName = "Segoe";
 
-        public static string ChaabiImagePath
-        {
-            get { return ChaabiImageName.ToPath(GraphicsFolderName); }
-        }
+        public static string ChaabiImagePath => ChaabiImageName.ToPath(GraphicsFolderName);
 
-        public static string DirwaazaImagePath
-        {
-            get { return DirwaazaImageName.ToPath(GraphicsFolderName); }
-        }
+        public static string DirwaazaImagePath => DirwaazaImageName.ToPath(GraphicsFolderName);
 
-        public static string PaisaImagePath
-        {
-            get { return PaisaImageName.ToPath(GraphicsFolderName); }
-        }
+        public static string PaisaImagePath => PaisaImageName.ToPath(GraphicsFolderName);
 
-        public static string LeftArrowImagePath
-        {
-            get { return LeftArrowImageName.ToPath(GraphicsFolderName); }
-        }
+        public static string LeftArrowImagePath => LeftArrowImageName.ToPath(GraphicsFolderName);
 
-        public static string MoutImagePath
-        {
-            get { return MoutImageName.ToPath(GraphicsFolderName); }
-        }
+        public static string MoutImagePath => MoutImageName.ToPath(GraphicsFolderName);
 
-        public static string TaalaImagePath
-        {
-            get { return TaalaImageName.ToPath(GraphicsFolderName); }
-        }
+        public static string TaalaImagePath => TaalaImageName.ToPath(GraphicsFolderName);
 
-        public static string TaaqatImagePath
-        {
-            get { return TaaqatImageName.ToPath(GraphicsFolderName); }
-        }
+        public static string TaaqatImagePath => TaaqatImageName.ToPath(GraphicsFolderName);
 
-        public static string TopArrowImagePath
-        {
-            get { return TopArrowImageName.ToPath(GraphicsFolderName); }
-        }
+        public static string TopArrowImagePath => TopArrowImageName.ToPath(GraphicsFolderName);
 
-        public static string VictoryImagePath
-        {
-            get { return VictoryImageName.ToPath(GraphicsFolderName); }
-        }
+        public static string VictoryImagePath => VictoryImageName.ToPath(GraphicsFolderName);
 
-        public static string NextScreenImagePath
-        {
-            get { return NextScreenImageName.ToPath(GraphicsFolderName); }
-        }
+        public static string NextScreenImagePath => NextScreenImageName.ToPath(GraphicsFolderName);
 
-        public static string NewGameImagePath
-        {
-            get { return NewGameImageName.ToPath(GraphicsFolderName); }
-        }
+        public static string NewGameImagePath => NewGameImageName.ToPath(GraphicsFolderName);
 
-        public static string ExitGameImagePath
-        {
-            get { return ExitGameImageName.ToPath(GraphicsFolderName); }
-        }
+        public static string ExitGameImagePath => ExitGameImageName.ToPath(GraphicsFolderName);
 
-        public static string BlackAndWhiteAintImagePath
-        {
-            get { return BlackAndWhiteEintImageName.ToPath(TilesFolderName); }
-        }
+        public static string BlackAndWhiteAintImagePath => BlackAndWhiteEintImageName.ToPath(TilesFolderName);
 
-        public static string ThakurNormalImagePath
-        {
-            get { return ThakurNormalImageName.ToPath(ThakurFolderName); }
-        }
+        public static string ThakurNormalImagePath => ThakurNormalImageName.ToPath(ThakurFolderName);
 
-        public static string SegoeImagePath
-        {
-            get { return SegoeImageName.ToPath(FontsFolderName); }
-        }
+        public static string SegoeImagePath => SegoeImageName.ToPath(FontsFolderName);
 
         public static string ToPath(this string input, string parentFolder)
         {

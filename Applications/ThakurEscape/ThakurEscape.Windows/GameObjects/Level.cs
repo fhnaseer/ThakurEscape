@@ -3,30 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework.Graphics;
 using ThakurEscape.Windows.GameObjects.Arrows;
-using ThakurEscape.Windows.GameObjects.Chaabiyan;
 using ThakurEscape.Windows.GameObjects.Dirwaazay;
+using ThakurEscape.Windows.GameObjects.Keys;
 using ThakurEscape.Windows.GameObjects.Taalay;
 using ThakurEscape.Windows.Screens;
 
 namespace ThakurEscape.Windows.GameObjects
 {
-    enum LevelStatus
+    public enum LevelStatus
     {
         InProgress,
         Completed,
         GameOver
     }
 
-    internal class Level
+    public class Level
     {
         internal int Rows { get; private set; }
         internal int Columns { get; private set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal LevelStatus LevelStatus { get; private set; }
         private GameObjectBase[][] _gameObjects;
         private readonly List<DirwaazaBase> _dirwaazay = new List<DirwaazaBase>();
         private readonly List<ChaabiBase> _chaabiyaan = new List<ChaabiBase>();
         private readonly List<TaalaBase> _taalay = new List<TaalaBase>();
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Thakur Thakur { get; private set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal int PaisaCollected { get; private set; }
         public Level()
         {
@@ -119,6 +123,7 @@ namespace ThakurEscape.Windows.GameObjects
             }
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
@@ -138,36 +143,39 @@ namespace ThakurEscape.Windows.GameObjects
             spriteBatch.End();
         }
 
-        internal void MovePlayer(KidherChalayHoBadshaho kidher)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal void MovePlayer(MovementDirection kidher)
         {
             var gameObject = GetNextTile((int)Thakur.Position.Y, (int)Thakur.Position.X, kidher);
             if (!CanMovePlayer(gameObject, kidher)) return;
             CollectGameObject(gameObject, kidher);
         }
 
-        private GameObjectBase GetNextTile(int rowPosition, int columnPosition, KidherChalayHoBadshaho moveDirection)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        private GameObjectBase GetNextTile(int rowPosition, int columnPosition, MovementDirection moveDirection)
         {
             switch (moveDirection)
             {
-                case KidherChalayHoBadshaho.Baain:
+                case MovementDirection.Left:
                     columnPosition--;
                     break;
-                case KidherChalayHoBadshaho.Daain:
+                case MovementDirection.Right:
                     columnPosition++;
                     break;
-                case KidherChalayHoBadshaho.Ooper:
+                case MovementDirection.Up:
                     rowPosition--;
                     break;
-                case KidherChalayHoBadshaho.Neechay:
+                case MovementDirection.Down:
                     rowPosition++;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("moveDirection");
+                    throw new ArgumentOutOfRangeException(nameof(moveDirection));
             }
             return _gameObjects[rowPosition][columnPosition];
         }
 
-        private bool CanMovePlayer(GameObjectBase gameObject, KidherChalayHoBadshaho kidher)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        private bool CanMovePlayer(GameObjectBase gameObject, MovementDirection kidher)
         {
             if (gameObject == null)
                 return true;
@@ -176,13 +184,13 @@ namespace ThakurEscape.Windows.GameObjects
 
             if (!(gameObject is ArrowBase || gameObject is TaalaBase))
                 return true;
-            if (gameObject is LeftArrow && kidher == KidherChalayHoBadshaho.Baain)
+            if (gameObject is LeftArrow && kidher == MovementDirection.Left)
                 return true;
-            if (gameObject is RightArrow && kidher == KidherChalayHoBadshaho.Daain)
+            if (gameObject is RightArrow && kidher == MovementDirection.Right)
                 return true;
-            if (gameObject is DownArrow && kidher == KidherChalayHoBadshaho.Neechay)
+            if (gameObject is DownArrow && kidher == MovementDirection.Down)
                 return true;
-            if (gameObject is UpArrow && kidher == KidherChalayHoBadshaho.Ooper)
+            if (gameObject is UpArrow && kidher == MovementDirection.Up)
                 return true;
             if (gameObject is SabzTaala && Thakur.HasSabzChaabi)
                 return true;
@@ -192,7 +200,8 @@ namespace ThakurEscape.Windows.GameObjects
             return false;
         }
 
-        private void CollectGameObject(GameObjectBase gameObject, KidherChalayHoBadshaho kidher)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        private void CollectGameObject(GameObjectBase gameObject, MovementDirection kidher)
         {
             Thakur.Move(kidher);
             if (gameObject == null)
@@ -230,6 +239,7 @@ namespace ThakurEscape.Windows.GameObjects
             EmptyGameObject(gameObject);
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         private void EmptyGameObject(GameObjectBase gameObject)
         {
             _gameObjects[(int)gameObject.Position.Y][(int)gameObject.Position.X] = null;

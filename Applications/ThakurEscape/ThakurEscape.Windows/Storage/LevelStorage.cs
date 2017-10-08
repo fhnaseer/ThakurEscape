@@ -7,15 +7,14 @@ namespace ThakurEscape.Windows.Storage
     public class LevelsStorageData
     {
         [XmlElement]
-        public int NumberOfBoards { get { return Levels.Count; } }
+        public int NumberOfBoards => Levels.Count;
 
         private List<LevelStorage> _levels;
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
         [XmlArrayItem("Levels")]
-        public List<LevelStorage> Levels
-        {
-            get { return _levels ?? (_levels = new List<LevelStorage>()); }
-        }
+        public List<LevelStorage> Levels => _levels ?? (_levels = new List<LevelStorage>());
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal static LevelsStorageData AllLevelsData()
         {
             var levelsData = new LevelsStorageData();
@@ -48,16 +47,14 @@ namespace ThakurEscape.Windows.Storage
         public int LevelNumber { get; set; }
 
         [XmlElement]
-        public int NumberOfBoards { get { return Boards.Count; } }
+        public int NumberOfBoards => Boards.Count;
 
         [XmlElement]
         public int Taaqat { get; set; }
 
         private List<BoardStorage> _boards;
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
         [XmlArrayItem("Boards")]
-        public List<BoardStorage> Boards
-        {
-            get { return _boards ?? (_boards = new List<BoardStorage>()); }
-        }
+        public List<BoardStorage> Boards => _boards ?? (_boards = new List<BoardStorage>());
     }
 }

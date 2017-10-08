@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Windows.GameObjects
 {
-    internal abstract class GameObjectBase
+    public abstract class GameObjectBase
     {
         //protected GameObjectBase(float x, float y, float width, float height)
         //    : this(new Vector2(x, y), width, height)
@@ -21,6 +21,7 @@ namespace ThakurEscape.Windows.GameObjects
 
         internal abstract Texture2D Texture { get; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
         protected Texture2D GetTexture()
         {
             return ThakurEscapeGame.GameContent.Load<Texture2D>(TextureContentPath);
@@ -28,10 +29,7 @@ namespace ThakurEscape.Windows.GameObjects
 
         public Vector2 Position { get; set; }
 
-        public Rectangle BoundingRectangle
-        {
-            get { return new Rectangle((int)Position.X, (int)Position.Y, (int)Width, (int)Height); }
-        }
+        public Rectangle BoundingRectangle => new Rectangle((int)Position.X, (int)Position.Y, (int)Width, (int)Height);
 
         public float Width { get; protected set; }
         public float Height { get; protected set; }

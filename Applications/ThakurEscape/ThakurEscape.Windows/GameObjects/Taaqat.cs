@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Windows.GameObjects
 {
-    class Taaqat : GameObjectBase
+    public class Taaqat : GameObjectBase
     {
         internal const int Steps = 26;
 
@@ -17,10 +17,7 @@ namespace ThakurEscape.Windows.GameObjects
         {
         }
 
-        internal override Texture2D Texture
-        {
-            get { return StaticTexture ?? (StaticTexture = GetTexture()); }
-        }
+        internal override Texture2D Texture => StaticTexture ?? (StaticTexture = GetTexture());
 
         internal static Texture2D StaticTexture { get; set; }
 

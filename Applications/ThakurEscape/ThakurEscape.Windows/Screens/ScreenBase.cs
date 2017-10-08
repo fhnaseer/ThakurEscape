@@ -5,7 +5,7 @@ namespace ThakurEscape.Windows.Screens
 {
     internal delegate void ChangeEventHandler(object sender, ThakurEscapeGame.ScreenType e);
 
-    abstract class ScreenBase
+    internal abstract class ScreenBase
     {
         protected ScreenBase(float x, float y, float width, float height)
         {
@@ -19,9 +19,9 @@ namespace ThakurEscape.Windows.Screens
 
         internal Vector2 Position { get; set; }
 
-        internal Vector2 Size { get { return new Vector2(Width, Height); } }
+        internal Vector2 Size => new Vector2(Width, Height);
 
-        internal Rectangle BoundingRectangle { get { return new Rectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y); } }
+        internal Rectangle BoundingRectangle => new Rectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y);
 
         internal abstract void Draw(SpriteBatch spriteBatch);
 

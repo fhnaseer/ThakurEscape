@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Windows.GameObjects.Taalay
 {
-    class LaalTaala : TaalaBase
+    public class LaalTaala : TaalaBase
     {
         public LaalTaala(float x, float y, float width, float height)
             : this(new Vector2(x, y), width, height)
@@ -15,21 +15,12 @@ namespace ThakurEscape.Windows.GameObjects.Taalay
         {
         }
 
-        internal override Texture2D Texture
-        {
-            get { return StaticTexture ?? (StaticTexture = GetTexture()); }
-        }
+        internal override Texture2D Texture => StaticTexture ?? (StaticTexture = GetTexture());
 
         internal static Texture2D StaticTexture { get; set; }
 
-        protected override Color Color
-        {
-            get { return Color.Red; }
-        }
+        protected override Color Color => Color.Red;
 
-        protected override TaalaType TaalaType
-        {
-            get { return TaalaType.Laal; }
-        }
+        protected override TaalaType TaalaType => TaalaType.Laal;
     }
 }

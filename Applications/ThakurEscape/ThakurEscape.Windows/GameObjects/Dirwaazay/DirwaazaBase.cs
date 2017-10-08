@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Windows.GameObjects.Dirwaazay
 {
-    internal abstract class DirwaazaBase : GameObjectBase
+    public abstract class DirwaazaBase : GameObjectBase
     {
         //protected DirwaazaBase(float x, float y, float width, float height)
         //    : this (new Vector2(x,y), width, height)

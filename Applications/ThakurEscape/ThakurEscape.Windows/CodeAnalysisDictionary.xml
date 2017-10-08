@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Dictionary>
+    <Words>
+        <Compound>
+            <Term>MidPoint</Term>
+        </Compound>
+        <Unrecognized>
+        </Unrecognized>
+        <Recognized>
+            <Word>Dirwaazay</Word>
+            <Word>Laal</Word>
+            <Word>Sabz</Word>
+            <Word>Dirwaaza</Word>
+            <Word>Eint</Word>
+            <Word>Chaabi</Word>
+            <Word>Taala</Word>
+            <Word>Mout</Word>
+            <Word>Paisa</Word>
+            <Word>Taalay</Word>
+            <Word>Taaqat</Word>
+            <Word>x</Word>
+            <Word>y</Word>
+        </Recognized>
+        <Deprecated>
+            <Term PreferredAlternate="EnterpriseServices">ComPlus</Term>
+        </Deprecated>
+    </Words>
+    <Acronyms>
+        <CasingExceptions>
+            <Acronym>PS</Acronym>
+        </CasingExceptions>
+    </Acronyms>
+</Dictionary>

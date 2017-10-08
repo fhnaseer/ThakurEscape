@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Windows.GameObjects.Dirwaazay
 {
-    class SabzDirwaaza : DirwaazaBase
+    public class SabzDirwaaza : DirwaazaBase
     {
         public SabzDirwaaza(float x, float y, float width, float height)
             : this(new Vector2(x, y), width, height)
@@ -15,21 +15,12 @@ namespace ThakurEscape.Windows.GameObjects.Dirwaazay
         {
         }
 
-        internal override Texture2D Texture
-        {
-            get { return StaticTexture ?? (StaticTexture = GetTexture()); }
-        }
+        internal override Texture2D Texture => StaticTexture ?? (StaticTexture = GetTexture());
 
         internal static Texture2D StaticTexture { get; set; }
 
-        protected override Color Color
-        {
-            get { return Color.Green; }
-        }
+        protected override Color Color => Color.Green;
 
-        protected override DirwaazaType DirwaazaType
-        {
-            get { return DirwaazaType.Sabz; }
-        }
+        protected override DirwaazaType DirwaazaType => DirwaazaType.Sabz;
     }
 }

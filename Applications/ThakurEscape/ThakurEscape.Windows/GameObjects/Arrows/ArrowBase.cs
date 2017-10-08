@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Windows.GameObjects.Arrows
 {
-    abstract class ArrowBase : GameObjectBase
+    internal abstract class ArrowBase : GameObjectBase
     {
         //protected ArrowBase(float x, float y, float width, float height)
         //    : this (new Vector2(x,y), width, height)
@@ -15,14 +15,14 @@ namespace ThakurEscape.Windows.GameObjects.Arrows
         {
         }
 
-        protected abstract Simat ArrowDirection { get; }
-        protected virtual SpriteEffects SpriteEffect { get { return SpriteEffects.None; } }
+        protected abstract Direction ArrowDirection { get; }
+        protected virtual SpriteEffects SpriteEffect => SpriteEffects.None;
 
         internal override string TextureContentPath
         {
             get
             {
-                if (ArrowDirection == Simat.Daain || ArrowDirection == Simat.Baain)
+                if (ArrowDirection == Direction.Right || ArrowDirection == Direction.Left)
                     return Constants.LeftArrowImagePath;
                 return Constants.TopArrowImagePath;
             }

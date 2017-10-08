@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ThakurEscape.Windows.GameObjects.Chaabiyan
+namespace ThakurEscape.Windows.GameObjects.Keys
 {
-    class LaalChaabi : ChaabiBase
+    public class LaalChaabi : ChaabiBase
     {
         public LaalChaabi(float x, float y, float width, float height)
             : this(new Vector2(x, y), width, height)
@@ -15,21 +15,12 @@ namespace ThakurEscape.Windows.GameObjects.Chaabiyan
         {
         }
 
-        internal override Texture2D Texture
-        {
-            get { return StaticTexture ?? (StaticTexture = GetTexture()); }
-        }
+        internal override Texture2D Texture => StaticTexture ?? (StaticTexture = GetTexture());
 
         internal static Texture2D StaticTexture { get; set; }
 
-        protected override Color Color
-        {
-            get { return Color.Red; }
-        }
+        protected override Color Color => Color.Red;
 
-        protected override ChaabiType ChaabiType
-        {
-            get { return ChaabiType.Laal; }
-        }
+        protected override ChaabiType ChaabiType => ChaabiType.Laal;
     }
 }

@@ -63,6 +63,8 @@ namespace ThakurEscape.Windows.Storage
 
     public class BoardStorage
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         [XmlArrayItem]
         public List<string> BoardData { get; set; }
     }

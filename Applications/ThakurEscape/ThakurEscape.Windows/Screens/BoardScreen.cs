@@ -5,14 +5,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ThakurEscape.Windows.GameObjects;
 using ThakurEscape.Windows.GameObjects.Arrows;
-using ThakurEscape.Windows.GameObjects.Chaabiyan;
 using ThakurEscape.Windows.GameObjects.Dirwaazay;
+using ThakurEscape.Windows.GameObjects.Keys;
 using ThakurEscape.Windows.GameObjects.Taalay;
 using ThakurEscape.Windows.Storage;
 
 namespace ThakurEscape.Windows.Screens
 {
-    class BoardScreen : ScreenBase
+    internal class BoardScreen : ScreenBase
     {
         public BoardScreen(int level, int boardNumber)
             : base(0, 0, ThakurEscapeGame.GameWidth, GameObjectHeight * 10)
@@ -156,9 +156,9 @@ namespace ThakurEscape.Windows.Screens
         {
         }
 
-        internal void MovePlayer(KidherChalayHoBadshaho kidher)
+        internal void MovePlayer(MovementDirection kidher)
         {
-            if (kidher == KidherChalayHoBadshaho.KahinBhiNahin) return;
+            if (kidher == MovementDirection.None) return;
             var gameObject = GetNextTile(Thakur.Position, kidher);
             if (!CanMovePlayer(gameObject, kidher)) return;
             CollectGameObject(gameObject, kidher);
@@ -171,31 +171,31 @@ namespace ThakurEscape.Windows.Screens
             BoardNumber = 1;
         }
 
-        private GameObjectBase GetNextTile(Vector2 position, KidherChalayHoBadshaho moveDirection)
+        private GameObjectBase GetNextTile(Vector2 position, MovementDirection moveDirection)
         {
             var rowPosition = GetRowIndexFromPostiion(position, Position);
             var columnPosition = GetColumnIndexFromPostiion(position, Position);
             switch (moveDirection)
             {
-                case KidherChalayHoBadshaho.Baain:
+                case MovementDirection.Left:
                     columnPosition--;
                     break;
-                case KidherChalayHoBadshaho.Daain:
+                case MovementDirection.Right:
                     columnPosition++;
                     break;
-                case KidherChalayHoBadshaho.Ooper:
+                case MovementDirection.Up:
                     rowPosition--;
                     break;
-                case KidherChalayHoBadshaho.Neechay:
+                case MovementDirection.Down:
                     rowPosition++;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException("moveDirection");
+                    throw new ArgumentOutOfRangeException(nameof(moveDirection));
             }
             return _gameObjects[rowPosition][columnPosition];
         }
 
-        private bool CanMovePlayer(GameObjectBase gameObject, KidherChalayHoBadshaho kidher)
+        private bool CanMovePlayer(GameObjectBase gameObject, MovementDirection kidher)
         {
             if (gameObject == null)
                 return true;
@@ -204,13 +204,13 @@ namespace ThakurEscape.Windows.Screens
 
             if (!(gameObject is ArrowBase || gameObject is TaalaBase))
                 return true;
-            if (gameObject is LeftArrow && kidher == KidherChalayHoBadshaho.Baain)
+            if (gameObject is LeftArrow && kidher == MovementDirection.Left)
                 return true;
-            if (gameObject is RightArrow && kidher == KidherChalayHoBadshaho.Daain)
+            if (gameObject is RightArrow && kidher == MovementDirection.Right)
                 return true;
-            if (gameObject is DownArrow && kidher == KidherChalayHoBadshaho.Neechay)
+            if (gameObject is DownArrow && kidher == MovementDirection.Down)
                 return true;
-            if (gameObject is UpArrow && kidher == KidherChalayHoBadshaho.Ooper)
+            if (gameObject is UpArrow && kidher == MovementDirection.Up)
                 return true;
             if (gameObject is SabzTaala && Thakur.HasSabzChaabi)
                 return true;
@@ -220,7 +220,7 @@ namespace ThakurEscape.Windows.Screens
             return false;
         }
 
-        private void CollectGameObject(GameObjectBase gameObject, KidherChalayHoBadshaho kidher)
+        private void CollectGameObject(GameObjectBase gameObject, MovementDirection kidher)
         {
             if (gameObject is NextBoard)
             {

@@ -4,31 +4,19 @@ using ThakurEscape.Windows.GameObjects.Menus;
 
 namespace ThakurEscape.Windows.Screens
 {
-    class MainScreen : FullScreenBase
+    internal class MainScreen : FullScreenBase
     {
         private NewGame _newGame;
-        internal NewGame NewGame
-        {
-            get
-            {
-                return _newGame ??
-                       (_newGame =
-                           new NewGame(BoardScreen.GetPositionFromIndex(new Vector2(), 0, 18),
-                               BoardScreen.GameObjectWidth * 2, BoardScreen.GameObjectHeight));
-            }
-        }
+        internal NewGame NewGame => _newGame ??
+                                    (_newGame =
+                                        new NewGame(BoardScreen.GetPositionFromIndex(new Vector2(), 0, 18),
+                                            BoardScreen.GameObjectWidth * 2, BoardScreen.GameObjectHeight));
 
         private ExitGame _exitGame;
-        internal ExitGame ExitGame
-        {
-            get
-            {
-                return _exitGame ??
-                       (_exitGame =
-                           new ExitGame(BoardScreen.GetPositionFromIndex(new Vector2(), 10, 18),
-                               BoardScreen.GameObjectWidth * 2, BoardScreen.GameObjectHeight));
-            }
-        }
+        internal ExitGame ExitGame => _exitGame ??
+                                      (_exitGame =
+                                          new ExitGame(BoardScreen.GetPositionFromIndex(new Vector2(), 10, 18),
+                                              BoardScreen.GameObjectWidth * 2, BoardScreen.GameObjectHeight));
 
         internal override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
@@ -66,6 +54,7 @@ namespace ThakurEscape.Windows.Screens
             }
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic")]
         private void HandleKeyboardInput()
         {
             //var gamePadState = GamePad.GetState(PlayerIndex.One);
@@ -104,7 +93,7 @@ namespace ThakurEscape.Windows.Screens
             //    if (_leftDown)
             //    {
             //        _upDown = _downDown = _leftDown = _rightDown = false;
-            //        Board.MovePlayer(KidherChalayHoBadshaho.Baain);
+            //        Board.MovePlayer(Direction.Baain);
             //    }
             //}
             //if (gamePadState.IsButtonUp(Buttons.DPadRight) && keyboardState.IsKeyUp(Keys.Right) && keyboardState.IsKeyUp(Keys.D))
@@ -112,7 +101,7 @@ namespace ThakurEscape.Windows.Screens
             //    if (_rightDown)
             //    {
             //        _upDown = _downDown = _leftDown = _rightDown = false;
-            //        Board.MovePlayer(KidherChalayHoBadshaho.Daain);
+            //        Board.MovePlayer(Direction.Daain);
             //    }
             //}
             //if (gamePadState.IsButtonUp(Buttons.DPadUp) && keyboardState.IsKeyUp(Keys.Up) && keyboardState.IsKeyUp(Keys.W))
@@ -120,14 +109,14 @@ namespace ThakurEscape.Windows.Screens
             //    if (_upDown)
             //    {
             //        _upDown = _downDown = _leftDown = _rightDown = false;
-            //        Board.MovePlayer(KidherChalayHoBadshaho.Ooper);
+            //        Board.MovePlayer(Direction.Ooper);
             //    }
             //}
             //if (!gamePadState.IsButtonUp(Buttons.DPadDown) || !keyboardState.IsKeyUp(Keys.Down) ||
             //    !keyboardState.IsKeyUp(Keys.S)) return;
             //if (!_downDown) return;
             //_upDown = _downDown = _leftDown = _rightDown = false;
-            //Board.MovePlayer(KidherChalayHoBadshaho.Neechay);
+            //Board.MovePlayer(Direction.Neechay);
         }
     }
 }

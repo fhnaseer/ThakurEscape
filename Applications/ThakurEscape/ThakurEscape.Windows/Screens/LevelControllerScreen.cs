@@ -5,12 +5,12 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 using ThakurEscape.Windows.GameObjects;
 using ThakurEscape.Windows.GameObjects.Arrows;
-using ThakurEscape.Windows.GameObjects.Chaabiyan;
 using ThakurEscape.Windows.GameObjects.Fonts;
+using ThakurEscape.Windows.GameObjects.Keys;
 
 namespace ThakurEscape.Windows.Screens
 {
-    class LevelControllerScreen : ScreenBase
+    internal class LevelControllerScreen : ScreenBase
     {
         public LevelControllerScreen()
             : base(0, ThakurEscapeGame.GameHeight / 11 * 10,
@@ -22,58 +22,29 @@ namespace ThakurEscape.Windows.Screens
         internal BoardScreen Board { get; set; }
 
         private LeftArrow _moveLeft;
-        internal LeftArrow MoveLeft
-        {
-            get { return _moveLeft ?? (_moveLeft = new LeftArrow(Position.X, Position.Y, Width / 6, Height)); }
-        }
+        internal LeftArrow MoveLeft => _moveLeft ?? (_moveLeft = new LeftArrow(Position.X, Position.Y, Width / 6, Height));
 
         private RightArrow _moveRight;
-        internal RightArrow MoveRight
-        {
-            get { return _moveRight ?? (_moveRight = new RightArrow(Position.X + Width / 6, Position.Y, Width / 6, Height)); }
-        }
+        internal RightArrow MoveRight => _moveRight ?? (_moveRight = new RightArrow(Position.X + Width / 6, Position.Y, Width / 6, Height));
 
         private UpArrow _moveUp;
-        internal UpArrow MoveUp
-        {
-            get { return _moveUp ?? (_moveUp = new UpArrow(Position.X + Width / 6 * 4, Position.Y, Width / 6, Height)); }
-        }
+        internal UpArrow MoveUp => _moveUp ?? (_moveUp = new UpArrow(Position.X + Width / 6 * 4, Position.Y, Width / 6, Height));
 
         private DownArrow _moveDown;
-        internal DownArrow MoveDown
-        {
-            get { return _moveDown ?? (_moveDown = new DownArrow(Position.X + Width / 6 * 5, Position.Y, Width / 6, Height)); }
-        }
+        internal DownArrow MoveDown => _moveDown ?? (_moveDown = new DownArrow(Position.X + Width / 6 * 5, Position.Y, Width / 6, Height));
 
         private LaalChaabi _laalChaabi;
-        internal LaalChaabi LaalChaabi
-        {
-            get { return _laalChaabi ?? (_laalChaabi = new LaalChaabi(Position.X + Width / 6 * 3 + Height, Position.Y, Height, Height)); }
-        }
+        internal LaalChaabi LaalChaabi => _laalChaabi ?? (_laalChaabi = new LaalChaabi(Position.X + Width / 6 * 3 + Height, Position.Y, Height, Height));
 
         private SabzChaabi _sabzChaabi;
-        internal SabzChaabi SabzChaabi
-        {
-            get { return _sabzChaabi ?? (_sabzChaabi = new SabzChaabi(Position.X + Width / 6 * 3 + Height + Height, Position.Y, Height, Height)); }
-        }
+        internal SabzChaabi SabzChaabi => _sabzChaabi ?? (_sabzChaabi = new SabzChaabi(Position.X + Width / 6 * 3 + Height + Height, Position.Y, Height, Height));
 
-        internal static string KeysText { get { return "Keys: "; } }
-        internal Vector2 KeysTextPostiion
-        {
-            get { return new Vector2(Position.X + Width / 6 * 3, Position.Y); }
-        }
+        internal static string KeysText => "Keys: ";
 
-        internal string TaaqatText
-        {
-            get
-            {
-                return string.Format(CultureInfo.CurrentUICulture, "Moves Left: {0}", Thakur.Taaqat);
-            }
-        }
-        internal Vector2 TaaqatTextPosition
-        {
-            get { return new Vector2(Position.X + Width / 6 * 2, Position.Y); }
-        }
+        internal Vector2 KeysTextPostiion => new Vector2(Position.X + Width / 6 * 3, Position.Y);
+
+        internal string TaaqatText => string.Format(CultureInfo.CurrentUICulture, "Moves Left: {0}", Thakur.Taaqat);
+        internal Vector2 TaaqatTextPosition => new Vector2(Position.X + Width / 6 * 2, Position.Y);
 
         internal override void Draw(SpriteBatch spriteBatch)
         {
@@ -150,14 +121,14 @@ namespace ThakurEscape.Windows.Screens
                     case GestureType.VerticalDrag:
                         {
                             var currentPosition = gesture.Position;
-                            _moveTo = currentPosition.Y > _tempPosition.Y ? KidherChalayHoBadshaho.Neechay : KidherChalayHoBadshaho.Ooper;
+                            _moveTo = currentPosition.Y > _tempPosition.Y ? MovementDirection.Down : MovementDirection.Up;
                             _tempPosition = currentPosition;
                         }
                         break;
                     case GestureType.HorizontalDrag:
                         {
                             var currentPosition = gesture.Position;
-                            _moveTo = currentPosition.X > _tempPosition.X ? KidherChalayHoBadshaho.Daain : KidherChalayHoBadshaho.Baain;
+                            _moveTo = currentPosition.X > _tempPosition.X ? MovementDirection.Right : MovementDirection.Left;
                             _tempPosition = currentPosition;
                         }
                         break;
@@ -172,6 +143,7 @@ namespace ThakurEscape.Windows.Screens
         private bool _upDown;
         private bool _leftDown;
         private bool _rightDown;
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         private void HandleKeyboardInput()
         {
             var gamePadState = GamePad.GetState(PlayerIndex.One);
@@ -210,7 +182,7 @@ namespace ThakurEscape.Windows.Screens
                 if (_leftDown)
                 {
                     _upDown = _downDown = _leftDown = _rightDown = false;
-                    Board.MovePlayer(KidherChalayHoBadshaho.Baain);
+                    Board.MovePlayer(MovementDirection.Left);
                 }
             }
             if (gamePadState.IsButtonUp(Buttons.DPadRight) && keyboardState.IsKeyUp(Keys.Right) && keyboardState.IsKeyUp(Keys.D))
@@ -218,7 +190,7 @@ namespace ThakurEscape.Windows.Screens
                 if (_rightDown)
                 {
                     _upDown = _downDown = _leftDown = _rightDown = false;
-                    Board.MovePlayer(KidherChalayHoBadshaho.Daain);
+                    Board.MovePlayer(MovementDirection.Right);
                 }
             }
             if (gamePadState.IsButtonUp(Buttons.DPadUp) && keyboardState.IsKeyUp(Keys.Up) && keyboardState.IsKeyUp(Keys.W))
@@ -226,30 +198,30 @@ namespace ThakurEscape.Windows.Screens
                 if (_upDown)
                 {
                     _upDown = _downDown = _leftDown = _rightDown = false;
-                    Board.MovePlayer(KidherChalayHoBadshaho.Ooper);
+                    Board.MovePlayer(MovementDirection.Up);
                 }
             }
             if (!gamePadState.IsButtonUp(Buttons.DPadDown) || !keyboardState.IsKeyUp(Keys.Down) ||
                 !keyboardState.IsKeyUp(Keys.S)) return;
             if (!_downDown) return;
             _upDown = _downDown = _leftDown = _rightDown = false;
-            Board.MovePlayer(KidherChalayHoBadshaho.Neechay);
+            Board.MovePlayer(MovementDirection.Down);
         }
 
         private Vector2 _tempPosition;
-        private KidherChalayHoBadshaho _moveTo;
+        private MovementDirection _moveTo;
 
-        internal KidherChalayHoBadshaho GetDirection(Vector2 position)
+        internal MovementDirection GetDirection(Vector2 position)
         {
             if (MoveLeft.BoundingRectangle.Contains(position))
-                return KidherChalayHoBadshaho.Baain;
+                return MovementDirection.Left;
             if (MoveRight.BoundingRectangle.Contains(position))
-                return KidherChalayHoBadshaho.Daain;
+                return MovementDirection.Right;
             if (MoveUp.BoundingRectangle.Contains(position))
-                return KidherChalayHoBadshaho.Ooper;
+                return MovementDirection.Up;
             return MoveDown.BoundingRectangle.Contains(position)
-                ? KidherChalayHoBadshaho.Neechay
-                : KidherChalayHoBadshaho.KahinBhiNahin;
+                ? MovementDirection.Down
+                : MovementDirection.None;
         }
         #endregion
     }

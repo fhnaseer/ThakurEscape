@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ThakurEscape.Windows.GameObjects.Chaabiyan
+namespace ThakurEscape.Windows.GameObjects.Keys
 {
-    internal abstract class ChaabiBase : GameObjectBase
+    public abstract class ChaabiBase : GameObjectBase
     {
         //protected ChaabiBase(float x, float y, float width, float height)
         //    : this (new Vector2(x,y), width, height)
