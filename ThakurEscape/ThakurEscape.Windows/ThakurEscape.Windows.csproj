@@ -82,7 +82,6 @@
     <Compile Include="GameObjects\Taaqat.cs" />
     <Compile Include="GameObjects\Thakur.cs" />
     <Compile Include="GameObjects\Victory.cs" />
-    <Compile Include="GameSettings.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Screens\BoardScreen.cs" />
     <Compile Include="Screens\FullScreenBase.cs" />
@@ -99,8 +98,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="MonoGame.Framework">
-      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
+    <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
