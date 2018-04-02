@@ -270,6 +270,12 @@
       <HintPath>..\..\ThirdParty\MonoGame\v3.0\Assemblies\WindowsUniversal\MonoGame.Framework.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThakurEscape.Game\ThakurEscape.Game.csproj">
+      <Project>{ae76e005-31ec-470b-bc0d-d6caaa0d0f9b}</Project>
+      <Name>ThakurEscape.Game</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
