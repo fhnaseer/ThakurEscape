@@ -42,7 +42,7 @@ namespace ThakurEscape.Game.GameObjects
 
         internal override string TextureContentPath
         {
-            get { return Constants.ThakurNormalImagePath; }
+            get => Constants.ThakurNormalImagePath;
             set { }
         }
 

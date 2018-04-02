@@ -16,7 +16,7 @@ namespace ThakurEscape.Game.GameObjects.Menus
 
         internal override string TextureContentPath
         {
-            get { return Constants.ExitGameImagePath; }
+            get => Constants.ExitGameImagePath;
             set { }
         }
 

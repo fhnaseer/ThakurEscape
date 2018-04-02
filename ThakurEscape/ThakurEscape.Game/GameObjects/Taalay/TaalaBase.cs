@@ -20,7 +20,7 @@ namespace ThakurEscape.Game.GameObjects.Taalay
 
         internal override string TextureContentPath
         {
-            get { return Constants.TaalaImagePath; }
+            get => Constants.TaalaImagePath;
             set { }
         }
 

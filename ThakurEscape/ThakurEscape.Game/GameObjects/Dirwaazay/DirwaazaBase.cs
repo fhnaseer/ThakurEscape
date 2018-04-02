@@ -20,7 +20,7 @@ namespace ThakurEscape.Game.GameObjects.Dirwaazay
 
         internal override string TextureContentPath
         {
-            get { return Constants.DirwaazaImagePath; }
+            get => Constants.DirwaazaImagePath;
             set { }
         }
 

@@ -16,7 +16,7 @@ namespace ThakurEscape.Game.GameObjects.Fonts
 
         internal override string SpriteFontPath
         {
-            get { return Constants.SegoeImagePath; }
+            get => Constants.SegoeImagePath;
             set { }
         }
 
