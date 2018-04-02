@@ -9,7 +9,7 @@ namespace ThakurEscape
     /// </summary>
     public sealed partial class GamePage
     {
-        readonly ThakurEscapeGame _game;
+        public ThakurEscapeGame Game { get; }
 
         public GamePage()
         {
@@ -17,7 +17,7 @@ namespace ThakurEscape
 
             // Create the game.
             var launchArguments = string.Empty;
-            _game = MonoGame.Framework.XamlGame<ThakurEscapeGame>.Create(launchArguments, Window.Current.CoreWindow, swapChainPanel);
+            Game = MonoGame.Framework.XamlGame<ThakurEscapeGame>.Create(launchArguments, Window.Current.CoreWindow, swapChainPanel);
         }
     }
 }

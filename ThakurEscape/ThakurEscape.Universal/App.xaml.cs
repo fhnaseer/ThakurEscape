@@ -76,6 +76,7 @@ namespace ThakurEscape
                 rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
+                rootFrame.SizeChanged += RootFrameOnSizeChanged;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
@@ -95,6 +96,12 @@ namespace ThakurEscape
             }
             // Ensure the current window is active
             Window.Current.Activate();
+        }
+
+        private void RootFrameOnSizeChanged(object sender, SizeChangedEventArgs sizeChangedEventArgs)
+        {
+            var rootObject = (Frame)sender;
+            var page = rootObject.Content as GamePage;
         }
 
         /// <summary>

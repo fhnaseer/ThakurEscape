@@ -82,6 +82,7 @@
     <Compile Include="GameObjects\Taaqat.cs" />
     <Compile Include="GameObjects\Thakur.cs" />
     <Compile Include="GameObjects\Victory.cs" />
+    <Compile Include="GameSettings.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Screens\BoardScreen.cs" />
     <Compile Include="Screens\FullScreenBase.cs" />
