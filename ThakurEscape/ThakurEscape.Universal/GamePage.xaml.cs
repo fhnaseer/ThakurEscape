@@ -1,4 +1,5 @@
 ﻿using Windows.UI.Xaml;
+using ThakurEscape.Game;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -14,7 +15,6 @@ namespace ThakurEscape
         public GamePage()
         {
             InitializeComponent();
-
             // Create the game.
             var launchArguments = string.Empty;
             Game = MonoGame.Framework.XamlGame<ThakurEscapeGame>.Create(launchArguments, Window.Current.CoreWindow, swapChainPanel);

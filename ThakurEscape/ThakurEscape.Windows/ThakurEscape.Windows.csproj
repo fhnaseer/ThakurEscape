@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,11 +13,12 @@
     <AssemblyName>ThakurEscape.Windows</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -51,49 +52,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ExtensionMethods.cs" />
-    <Compile Include="GameObjects\Arrows\ArrowBase.cs" />
-    <Compile Include="GameObjects\Arrows\DownArrow.cs" />
-    <Compile Include="GameObjects\Arrows\LeftArrow.cs" />
-    <Compile Include="GameObjects\Arrows\RightArrow.cs" />
-    <Compile Include="GameObjects\Arrows\UpArrow.cs" />
-    <Compile Include="GameObjects\Keys\ChaabiBase.cs" />
-    <Compile Include="GameObjects\Keys\LaalChaabi.cs" />
-    <Compile Include="GameObjects\Keys\SabzChaabi.cs" />
-    <Compile Include="GameObjects\Constants.cs" />
-    <Compile Include="GameObjects\Dirwaazay\DirwaazaBase.cs" />
-    <Compile Include="GameObjects\Dirwaazay\LaalDirwaaza.cs" />
-    <Compile Include="GameObjects\Dirwaazay\SabzDirwaaza.cs" />
-    <Compile Include="GameObjects\Eint.cs" />
-    <Compile Include="GameObjects\Enums.cs" />
-    <Compile Include="GameObjects\Fonts\FontBase.cs" />
-    <Compile Include="GameObjects\Fonts\Segoe.cs" />
-    <Compile Include="GameObjects\GameObjectBase.cs" />
-    <Compile Include="GameObjects\Level.cs" />
-    <Compile Include="GameObjects\Menus\ExitGame.cs" />
-    <Compile Include="GameObjects\Menus\NewGame.cs" />
-    <Compile Include="GameObjects\Mout.cs" />
-    <Compile Include="GameObjects\NextBoard.cs" />
-    <Compile Include="GameObjects\NextScreen.cs" />
-    <Compile Include="GameObjects\Paisa.cs" />
-    <Compile Include="GameObjects\Taalay\LaalTaala.cs" />
-    <Compile Include="GameObjects\Taalay\SabzTaala.cs" />
-    <Compile Include="GameObjects\Taalay\TaalaBase.cs" />
-    <Compile Include="GameObjects\Taaqat.cs" />
-    <Compile Include="GameObjects\Thakur.cs" />
-    <Compile Include="GameObjects\Victory.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Screens\BoardScreen.cs" />
-    <Compile Include="Screens\FullScreenBase.cs" />
-    <Compile Include="Screens\LevelControllerScreen.cs" />
-    <Compile Include="Screens\LevelScreen.cs" />
-    <Compile Include="Screens\LevelSelectorScreen.cs" />
-    <Compile Include="Screens\MainScreen.cs" />
-    <Compile Include="Screens\ScreenBase.cs" />
-    <Compile Include="Storage\BoardStorage.cs" />
-    <Compile Include="Storage\GameStorage.cs" />
-    <Compile Include="Storage\LevelStorage.cs" />
-    <Compile Include="ThakurEscapeGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -118,7 +77,14 @@
       <Link>Content\ThakurEscape.mgcb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </MonoGameContentReference>
+    <None Include="app.config" />
     <None Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThakurEscape.Game\ThakurEscape.Game.csproj">
+      <Project>{3c2e6622-762e-4ddf-93d5-c2083a09dbea}</Project>
+      <Name>ThakurEscape.Game</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

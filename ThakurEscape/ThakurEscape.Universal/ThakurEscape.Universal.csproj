@@ -96,129 +96,6 @@
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Arrows\ArrowBase.cs">
-      <Link>GameObjects\Arrows\ArrowBase.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Arrows\DownArrow.cs">
-      <Link>GameObjects\Arrows\DownArrow.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Arrows\LeftArrow.cs">
-      <Link>GameObjects\Arrows\LeftArrow.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Arrows\RightArrow.cs">
-      <Link>GameObjects\Arrows\RightArrow.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Arrows\UpArrow.cs">
-      <Link>GameObjects\Arrows\UpArrow.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Constants.cs">
-      <Link>GameObjects\Constants.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Dirwaazay\DirwaazaBase.cs">
-      <Link>GameObjects\Dirwaazay\DirwaazaBase.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Dirwaazay\LaalDirwaaza.cs">
-      <Link>GameObjects\Dirwaazay\LaalDirwaaza.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Dirwaazay\SabzDirwaaza.cs">
-      <Link>GameObjects\Dirwaazay\SabzDirwaaza.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Eint.cs">
-      <Link>GameObjects\Eint.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Enums.cs">
-      <Link>GameObjects\Enums.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Fonts\FontBase.cs">
-      <Link>GameObjects\Fonts\FontBase.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Fonts\Segoe.cs">
-      <Link>GameObjects\Fonts\Segoe.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\GameObjectBase.cs">
-      <Link>GameObjects\GameObjectBase.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Keys\ChaabiBase.cs">
-      <Link>GameObjects\Keys\ChaabiBase.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Keys\LaalChaabi.cs">
-      <Link>GameObjects\Keys\LaalChaabi.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Keys\SabzChaabi.cs">
-      <Link>GameObjects\Keys\SabzChaabi.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Level.cs">
-      <Link>GameObjects\Level.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Menus\ExitGame.cs">
-      <Link>GameObjects\Menus\ExitGame.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Menus\NewGame.cs">
-      <Link>GameObjects\Menus\NewGame.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Mout.cs">
-      <Link>GameObjects\Mout.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\NextBoard.cs">
-      <Link>GameObjects\NextBoard.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\NextScreen.cs">
-      <Link>GameObjects\NextScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Paisa.cs">
-      <Link>GameObjects\Paisa.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Taalay\LaalTaala.cs">
-      <Link>GameObjects\Taalay\LaalTaala.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Taalay\SabzTaala.cs">
-      <Link>GameObjects\Taalay\SabzTaala.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Taalay\TaalaBase.cs">
-      <Link>GameObjects\Taalay\TaalaBase.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Taaqat.cs">
-      <Link>GameObjects\Taaqat.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Thakur.cs">
-      <Link>GameObjects\Thakur.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\GameObjects\Victory.cs">
-      <Link>GameObjects\Victory.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\Screens\BoardScreen.cs">
-      <Link>Screens\BoardScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\Screens\FullScreenBase.cs">
-      <Link>Screens\FullScreenBase.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\Screens\LevelControllerScreen.cs">
-      <Link>Screens\LevelControllerScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\Screens\LevelScreen.cs">
-      <Link>Screens\LevelScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\Screens\LevelSelectorScreen.cs">
-      <Link>Screens\LevelSelectorScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\Screens\MainScreen.cs">
-      <Link>Screens\MainScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\Screens\ScreenBase.cs">
-      <Link>Screens\ScreenBase.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\Storage\BoardStorage.cs">
-      <Link>Storage\BoardStorage.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\Storage\GameStorage.cs">
-      <Link>Storage\GameStorage.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\Storage\LevelStorage.cs">
-      <Link>Storage\LevelStorage.cs</Link>
-    </Compile>
-    <Compile Include="..\ThakurEscape.Windows\ThakurEscapeGame.cs">
-      <Link>ThakurEscapeGame.cs</Link>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -269,6 +146,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ThirdParty\MonoGame\v3.0\Assemblies\WindowsUniversal\MonoGame.Framework.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThakurEscape.Game\ThakurEscape.Game.csproj">
+      <Project>{3c2e6622-762e-4ddf-93d5-c2083a09dbea}</Project>
+      <Name>ThakurEscape.Game</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
