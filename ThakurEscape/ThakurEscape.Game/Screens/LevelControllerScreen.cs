@@ -19,22 +19,22 @@ namespace ThakurEscape.Game.Screens
         internal Thakur Thakur { get; set; }
 
         private LeftArrow _moveLeft;
-        internal LeftArrow MoveLeft => _moveLeft ?? (_moveLeft = new LeftArrow(0, 0));
+        internal LeftArrow MoveLeft => _moveLeft ?? (_moveLeft = new LeftArrow(0, 1));
 
         private RightArrow _moveRight;
-        internal RightArrow MoveRight => _moveRight ?? (_moveRight = new RightArrow(3, 0));
+        internal RightArrow MoveRight => _moveRight ?? (_moveRight = new RightArrow(0, 3));
 
         private UpArrow _moveUp;
-        internal UpArrow MoveUp => _moveUp ?? (_moveUp = new UpArrow(14, 0));
+        internal UpArrow MoveUp => _moveUp ?? (_moveUp = new UpArrow(0, 16));
 
         private DownArrow _moveDown;
-        internal DownArrow MoveDown => _moveDown ?? (_moveDown = new DownArrow(17, 0));
+        internal DownArrow MoveDown => _moveDown ?? (_moveDown = new DownArrow(0, 18));
 
         private LaalChaabi _laalChaabi;
-        internal LaalChaabi LaalChaabi => _laalChaabi ?? (_laalChaabi = new LaalChaabi(11, 0));
+        internal LaalChaabi LaalChaabi => _laalChaabi ?? (_laalChaabi = new LaalChaabi(0, 11));
 
         private SabzChaabi _sabzChaabi;
-        internal SabzChaabi SabzChaabi => _sabzChaabi ?? (_sabzChaabi = new SabzChaabi(12, 0));
+        internal SabzChaabi SabzChaabi => _sabzChaabi ?? (_sabzChaabi = new SabzChaabi(0, 12));
 
         internal static string KeysText => "Keys: ";
 
