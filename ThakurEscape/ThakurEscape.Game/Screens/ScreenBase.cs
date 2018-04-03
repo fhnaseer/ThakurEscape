@@ -7,21 +7,21 @@ namespace ThakurEscape.Game.Screens
 
     internal abstract class ScreenBase
     {
-        protected ScreenBase(float x, float y, float width, float height)
+        protected ScreenBase(int x, int y, int rows, int columns)
         {
-            Width = width;
-            Height = height;
-            Position = new Vector2(x, y);
+            OriginX = x;
+            OriginY = y;
+            Rows = rows;
+            Columns = columns;
         }
 
-        internal float Width { get; set; }
-        internal float Height { get; set; }
+        public int OriginX { get; set; }
 
-        internal Vector2 Position { get; set; }
+        public int OriginY { get; set; }
 
-        internal Vector2 Size => new Vector2(Width, Height);
+        public int Rows { get; }
 
-        internal Rectangle BoundingRectangle => new Rectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y);
+        public int Columns { get; }
 
         internal abstract void Draw(SpriteBatch spriteBatch);
 

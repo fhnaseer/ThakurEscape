@@ -3,18 +3,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Game.GameObjects
 {
-    internal class Thakur : GameObjectBase
+    public class Thakur : GameObjectBase
     {
         private MovementDirection _kithay;
 
-        public Thakur(float x, float y, float width, float height)
-            : this(new Vector2(x, y), width, height)
-        {
-            Kithay = MovementDirection.Right;
-        }
-
-        public Thakur(Vector2 position, float width, float height)
-            : base(position, width, height)
+        public Thakur(int row, int column)
+            : base(row, column)
         {
             Kithay = MovementDirection.Right;
         }
@@ -23,7 +17,6 @@ namespace ThakurEscape.Game.GameObjects
 
         internal static Texture2D StaticTexture { get; set; }
 
-        internal bool HasReachedExit { get; set; }
         internal bool HasSabzChaabi { get; set; }
         internal bool HasLaalChaabi { get; set; }
         internal int Taaqat { get; set; }
@@ -46,12 +39,17 @@ namespace ThakurEscape.Game.GameObjects
             set { }
         }
 
-        internal override void Draw(SpriteBatch spriteBatch)
+        public override Color SpriteColor => Color.White;
+
+        public override SpriteEffects SpriteEffect
         {
-            var spriteEffect = SpriteEffects.None;
-            if (Kithay == MovementDirection.Left)
-                spriteEffect = SpriteEffects.FlipHorizontally;
-            spriteBatch.Draw(Texture, BoundingRectangle, null, Color.White, 0f, Vector2.Zero, spriteEffect, 0f);
+            get
+            {
+                var spriteEffect = SpriteEffects.None;
+                if (Kithay == MovementDirection.Left)
+                    spriteEffect = SpriteEffects.FlipHorizontally;
+                return spriteEffect;
+            }
         }
 
         internal void Move(MovementDirection kithay)
@@ -61,16 +59,16 @@ namespace ThakurEscape.Game.GameObjects
             switch (kithay)
             {
                 case MovementDirection.Down:
-                    Position += new Vector2(0f, Height);
+                    Row++;
                     break;
                 case MovementDirection.Up:
-                    Position -= new Vector2(0f, Height);
+                    Row--;
                     break;
                 case MovementDirection.Right:
-                    Position += new Vector2(Width, 0f);
+                    Column++;
                     break;
                 case MovementDirection.Left:
-                    Position -= new Vector2(Width, 0f);
+                    Column--;
                     break;
             }
             Taaqat--;

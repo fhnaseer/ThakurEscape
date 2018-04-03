@@ -1,17 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Game.GameObjects.Arrows
 {
     internal class LeftArrow : ArrowBase
     {
-        public LeftArrow(float x, float y, float width, float height)
-            : this(new Vector2(x, y), width, height)
-        {
-        }
-
-        public LeftArrow(Vector2 position, float width, float height)
-            : base(position, width, height)
+        public LeftArrow(int row, int column)
+            : base(row, column)
         {
         }
 
@@ -19,7 +13,7 @@ namespace ThakurEscape.Game.GameObjects.Arrows
 
         internal static Texture2D StaticTexture { get; set; }
 
-        protected override SpriteEffects SpriteEffect => SpriteEffects.FlipHorizontally;
+        public override SpriteEffects SpriteEffect => SpriteEffects.FlipHorizontally;
 
         protected override Direction ArrowDirection => Direction.Left;
     }

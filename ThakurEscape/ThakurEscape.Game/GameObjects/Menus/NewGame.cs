@@ -1,12 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Game.GameObjects.Menus
 {
     public class NewGame : GameObjectBase
     {
-        public NewGame(Vector2 position, float width, float height)
-            : base(position, width, height)
+        public NewGame(int row, int column)
+            : base(row, column)
         {
         }
 
@@ -20,9 +19,7 @@ namespace ThakurEscape.Game.GameObjects.Menus
             set { }
         }
 
-        internal override void Draw(SpriteBatch spriteBatch)
-        {
-            Draw(spriteBatch, Color.Black);
-        }
+        public override int ColumnSpan => 2;
+
     }
 }

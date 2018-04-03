@@ -1,17 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Game.GameObjects
 {
     public class Victory : GameObjectBase
     {
-        public Victory(float x, float y, float width, float height)
-            : this(new Vector2(x, y), width, height)
-        {
-        }
-
-        public Victory(Vector2 position, float width, float height)
-            : base(position, width, height)
+        public Victory(int row, int column)
+            : base(row, column)
         {
         }
 
@@ -23,11 +17,6 @@ namespace ThakurEscape.Game.GameObjects
         {
             get => Constants.VictoryImagePath;
             set { }
-        }
-
-        internal override void Draw(SpriteBatch spriteBatch)
-        {
-            Draw(spriteBatch, Color.Black);
         }
     }
 }

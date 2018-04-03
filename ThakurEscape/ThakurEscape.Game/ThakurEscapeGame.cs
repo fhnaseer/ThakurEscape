@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
+using System;
 using ThakurEscape.Game.Screens;
 
 namespace ThakurEscape.Game
@@ -19,9 +19,6 @@ namespace ThakurEscape.Game
             Game,
             Exit
         };
-
-        internal static float GameWidth { get; set; }
-        internal static float GameHeight { get; set; }
 
         internal static ContentManager GameContent { get; private set; }
         public GraphicsDeviceManager Graphics { get; set; }
@@ -74,11 +71,11 @@ namespace ThakurEscape.Game
         {
             IsMouseVisible = true;
             Graphics = new GraphicsDeviceManager(this);
-            GameWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;//GraphicsDevice.Viewport.Width;
-            GameHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height; //GraphicsDevice.Viewport.Height;
+            GameContext.Instance.GameWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;//GraphicsDevice.Viewport.Width;
+            GameContext.Instance.GameHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height; //GraphicsDevice.Viewport.Height;
             Graphics.IsFullScreen = false;
-            Graphics.PreferredBackBufferHeight = (int)GameHeight;
-            Graphics.PreferredBackBufferWidth = (int)GameWidth;
+            Graphics.PreferredBackBufferWidth = (int)GameContext.Instance.GameWidth;
+            Graphics.PreferredBackBufferHeight = (int)GameContext.Instance.GameHeight;
             GameContent = Content;
             GameContent.RootDirectory = "Content";
             _currentScreenType = ScreenType.LevelSelector;
@@ -139,8 +136,8 @@ namespace ThakurEscape.Game
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            GameWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;//GraphicsDevice.Viewport.Width;
-            GameHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height; //GraphicsDevice.Viewport.Height;
+            GameContext.Instance.GameWidth = GraphicsDevice.Viewport.Width;//GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;//GraphicsDevice.Viewport.Width;
+            GameContext.Instance.GameHeight = GraphicsDevice.Viewport.Height;//GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height; //GraphicsDevice.Viewport.Height;
             _currentScreen.Draw(_spriteBatch);
 
             base.Draw(gameTime);

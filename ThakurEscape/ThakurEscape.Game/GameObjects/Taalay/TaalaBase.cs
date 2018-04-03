@@ -1,32 +1,18 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
-namespace ThakurEscape.Game.GameObjects.Taalay
+﻿namespace ThakurEscape.Game.GameObjects.Taalay
 {
     public abstract class TaalaBase : GameObjectBase
     {
-        //protected TaalaBase(float x, float y, float width, float height)
-        //    : this (new Vector2(x,y), width, height)
-        //{
-        //}
-
-        protected TaalaBase(Vector2 position, float width, float height)
-            : base(position, width, height)
+        protected TaalaBase(int row, int column)
+            : base(row, column)
         {
         }
 
-        protected abstract TaalaType TaalaType { get; }
-        protected abstract Color Color { get; }
+        public abstract TaalaType TaalaType { get; }
 
         internal override string TextureContentPath
         {
             get => Constants.TaalaImagePath;
             set { }
-        }
-
-        internal override void Draw(SpriteBatch spriteBatch)
-        {
-            Draw(spriteBatch, Color);
         }
     }
 }

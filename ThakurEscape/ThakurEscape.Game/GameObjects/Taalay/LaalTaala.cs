@@ -5,13 +5,8 @@ namespace ThakurEscape.Game.GameObjects.Taalay
 {
     public class LaalTaala : TaalaBase
     {
-        public LaalTaala(float x, float y, float width, float height)
-            : this(new Vector2(x, y), width, height)
-        {
-        }
-
-        public LaalTaala(Vector2 position, float width, float height)
-            : base(position, width, height)
+        public LaalTaala(int row, int column)
+            : base(row, column)
         {
         }
 
@@ -19,8 +14,8 @@ namespace ThakurEscape.Game.GameObjects.Taalay
 
         internal static Texture2D StaticTexture { get; set; }
 
-        protected override Color Color => Color.Red;
+        public override Color SpriteColor => Color.Red;
 
-        protected override TaalaType TaalaType => TaalaType.Laal;
+        public override TaalaType TaalaType => TaalaType.Laal;
     }
 }

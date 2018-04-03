@@ -1,6 +1,6 @@
 ﻿namespace ThakurEscape.Game.GameObjects
 {
-    public enum EintTextureType
+    public enum BrickTextureType
     {
         BlackAndWhite
     }

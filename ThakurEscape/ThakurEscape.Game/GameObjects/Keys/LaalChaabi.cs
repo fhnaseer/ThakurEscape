@@ -5,13 +5,8 @@ namespace ThakurEscape.Game.GameObjects.Keys
 {
     public class LaalChaabi : ChaabiBase
     {
-        public LaalChaabi(float x, float y, float width, float height)
-            : this(new Vector2(x, y), width, height)
-        {
-        }
-
-        public LaalChaabi(Vector2 position, float width, float height)
-            : base(position, width, height)
+        public LaalChaabi(int row, int column)
+            : base(row, column)
         {
         }
 
@@ -19,8 +14,8 @@ namespace ThakurEscape.Game.GameObjects.Keys
 
         internal static Texture2D StaticTexture { get; set; }
 
-        protected override Color Color => Color.Red;
+        public override Color SpriteColor => Color.Red;
 
-        protected override ChaabiType ChaabiType => ChaabiType.Laal;
+        public override ChaabiType ChaabiType => ChaabiType.Laal;
     }
 }

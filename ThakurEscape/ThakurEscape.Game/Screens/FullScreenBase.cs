@@ -3,7 +3,7 @@
     internal abstract class FullScreenBase : ScreenBase
     {
         protected FullScreenBase()
-            : base(0, 0, ThakurEscapeGame.GameWidth, ThakurEscapeGame.GameHeight)
+            : base(0, 0, GameContext.Rows, GameContext.Columns)
         {
         }
     }

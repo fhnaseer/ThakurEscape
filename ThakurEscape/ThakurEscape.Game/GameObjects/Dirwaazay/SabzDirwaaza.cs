@@ -5,13 +5,8 @@ namespace ThakurEscape.Game.GameObjects.Dirwaazay
 {
     public class SabzDirwaaza : DirwaazaBase
     {
-        public SabzDirwaaza(float x, float y, float width, float height)
-            : this(new Vector2(x, y), width, height)
-        {
-        }
-
-        public SabzDirwaaza(Vector2 position, float width, float height)
-            : base(position, width, height)
+        public SabzDirwaaza(int row, int column)
+            : base(row, column)
         {
         }
 
@@ -19,8 +14,8 @@ namespace ThakurEscape.Game.GameObjects.Dirwaazay
 
         internal static Texture2D StaticTexture { get; set; }
 
-        protected override Color Color => Color.Green;
+        public override Color SpriteColor => Color.Green;
 
-        protected override DirwaazaType DirwaazaType => DirwaazaType.Sabz;
+        public override DirwaazaType DirwaazaType => DirwaazaType.Sabz;
     }
 }

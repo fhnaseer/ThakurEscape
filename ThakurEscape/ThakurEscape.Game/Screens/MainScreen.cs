@@ -8,23 +8,17 @@ namespace ThakurEscape.Game.Screens
     internal class MainScreen : FullScreenBase
     {
         private NewGame _newGame;
-        internal NewGame NewGame => _newGame ??
-                                    (_newGame =
-                                        new NewGame(BoardScreen.GetPositionFromIndex(new Vector2(), 0, 18),
-                                            BoardScreen.GameObjectWidth * 2, BoardScreen.GameObjectHeight));
+        internal NewGame NewGame => _newGame ?? (_newGame = new NewGame(0, 18));
 
         private ExitGame _exitGame;
-        internal ExitGame ExitGame => _exitGame ??
-                                      (_exitGame =
-                                          new ExitGame(BoardScreen.GetPositionFromIndex(new Vector2(), 10, 18),
-                                              BoardScreen.GameObjectWidth * 2, BoardScreen.GameObjectHeight));
+        internal ExitGame ExitGame => _exitGame ?? (_exitGame = new ExitGame(10, 18));
 
         internal override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
 
-            NewGame.Draw(spriteBatch);
-            ExitGame.Draw(spriteBatch);
+            NewGame.Draw(this, spriteBatch);
+            ExitGame.Draw(this, spriteBatch);
 
             spriteBatch.End();
         }
@@ -49,9 +43,9 @@ namespace ThakurEscape.Game.Screens
 
                 if (gesture.GestureType != GestureType.Tap) continue;
                 var position = gesture.Position;
-                if (NewGame.BoundingRectangle.Contains(position))
+                if (NewGame.Contains(this, position))
                     OnChangeScreen(ThakurEscapeGame.ScreenType.Game);
-                if (ExitGame.BoundingRectangle.Contains(position))
+                if (ExitGame.Contains(this, position))
                     OnChangeScreen(ThakurEscapeGame.ScreenType.Exit);
             }
         }
@@ -62,9 +56,9 @@ namespace ThakurEscape.Game.Screens
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
                 var position = new Point(mouseState.X, mouseState.Y);
-                if (NewGame.BoundingRectangle.Contains(position))
+                if (NewGame.Contains(this, position))
                     OnChangeScreen(ThakurEscapeGame.ScreenType.Game);
-                if (ExitGame.BoundingRectangle.Contains(position))
+                if (ExitGame.Contains(this, position))
                     OnChangeScreen(ThakurEscapeGame.ScreenType.Exit);
             }
         }

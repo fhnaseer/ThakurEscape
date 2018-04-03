@@ -1,11 +1,9 @@
-﻿using System.Globalization;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 using ThakurEscape.Game.GameObjects;
 using ThakurEscape.Game.GameObjects.Arrows;
-using ThakurEscape.Game.GameObjects.Fonts;
 using ThakurEscape.Game.GameObjects.Keys;
 
 namespace ThakurEscape.Game.Screens
@@ -13,52 +11,55 @@ namespace ThakurEscape.Game.Screens
     internal class LevelControllerScreen : ScreenBase
     {
         public LevelControllerScreen()
-            : base(0, ThakurEscapeGame.GameHeight / 11 * 10,
-            ThakurEscapeGame.GameWidth, ThakurEscapeGame.GameHeight / 11)
+            : base(0, 10, 1, GameContext.Columns)
         {
         }
 
-        internal Thakur Thakur { get; set; }
         internal BoardScreen Board { get; set; }
+        internal Thakur Thakur { get; set; }
 
         private LeftArrow _moveLeft;
-        internal LeftArrow MoveLeft => _moveLeft ?? (_moveLeft = new LeftArrow(Position.X, Position.Y, Width / 6, Height));
+        internal LeftArrow MoveLeft => _moveLeft ?? (_moveLeft = new LeftArrow(0, 0));
 
         private RightArrow _moveRight;
-        internal RightArrow MoveRight => _moveRight ?? (_moveRight = new RightArrow(Position.X + Width / 6, Position.Y, Width / 6, Height));
+        internal RightArrow MoveRight => _moveRight ?? (_moveRight = new RightArrow(3, 0));
 
         private UpArrow _moveUp;
-        internal UpArrow MoveUp => _moveUp ?? (_moveUp = new UpArrow(Position.X + Width / 6 * 4, Position.Y, Width / 6, Height));
+        internal UpArrow MoveUp => _moveUp ?? (_moveUp = new UpArrow(14, 0));
 
         private DownArrow _moveDown;
-        internal DownArrow MoveDown => _moveDown ?? (_moveDown = new DownArrow(Position.X + Width / 6 * 5, Position.Y, Width / 6, Height));
+        internal DownArrow MoveDown => _moveDown ?? (_moveDown = new DownArrow(17, 0));
 
         private LaalChaabi _laalChaabi;
-        internal LaalChaabi LaalChaabi => _laalChaabi ?? (_laalChaabi = new LaalChaabi(Position.X + Width / 6 * 3 + Height, Position.Y, Height, Height));
+        internal LaalChaabi LaalChaabi => _laalChaabi ?? (_laalChaabi = new LaalChaabi(11, 0));
 
         private SabzChaabi _sabzChaabi;
-        internal SabzChaabi SabzChaabi => _sabzChaabi ?? (_sabzChaabi = new SabzChaabi(Position.X + Width / 6 * 3 + Height + Height, Position.Y, Height, Height));
+        internal SabzChaabi SabzChaabi => _sabzChaabi ?? (_sabzChaabi = new SabzChaabi(12, 0));
 
         internal static string KeysText => "Keys: ";
 
-        internal Vector2 KeysTextPostiion => new Vector2(Position.X + Width / 6 * 3, Position.Y);
+        //internal Vector2 KeysTextPostiion => new Vector2(Position.X + Width / 6 * 3, Position.Y);
 
-        internal string TaaqatText => string.Format(CultureInfo.CurrentUICulture, "Moves Left: {0}", Thakur.Taaqat);
-        internal Vector2 TaaqatTextPosition => new Vector2(Position.X + Width / 6 * 2, Position.Y);
+        //internal string TaaqatText => string.Format(CultureInfo.CurrentUICulture, "Moves Left: {0}", Thakur.Taaqat);
+        //internal Vector2 TaaqatTextPosition => new Vector2(Position.X + Width / 6 * 2, Position.Y);
 
         internal override void Draw(SpriteBatch spriteBatch)
         {
-            MoveLeft.Draw(spriteBatch);
-            MoveRight.Draw(spriteBatch);
-            MoveUp.Draw(spriteBatch);
-            MoveDown.Draw(spriteBatch);
+            spriteBatch.Begin();
 
-            Segoe.Instance.Draw(spriteBatch, TaaqatText, TaaqatTextPosition, Color.Black, 1f, 1f);
-            Segoe.Instance.Draw(spriteBatch, KeysText, KeysTextPostiion, Color.Black, 1f, 1f);
+            MoveLeft.Draw(this, spriteBatch);
+            MoveRight.Draw(this, spriteBatch);
+            MoveUp.Draw(this, spriteBatch);
+            MoveDown.Draw(this, spriteBatch);
+
+            //Segoe.Instance.Draw(spriteBatch, TaaqatText, TaaqatTextPosition, Color.Black, 1f, 1f);
+            //Segoe.Instance.Draw(spriteBatch, KeysText, KeysTextPostiion, Color.Black, 1f, 1f);
             if (Thakur.HasSabzChaabi)
-                SabzChaabi.Draw(spriteBatch);
+                SabzChaabi.Draw(this, spriteBatch);
             if (Thakur.HasLaalChaabi)
-                LaalChaabi.Draw(spriteBatch);
+                LaalChaabi.Draw(this, spriteBatch);
+
+            spriteBatch.End();
         }
 
         internal override void Update(GameTime gameTime)
@@ -83,40 +84,11 @@ namespace ThakurEscape.Game.Screens
                 {
                     case GestureType.Tap:
                         var position = gesture.Position;
-                        if (BoundingRectangle.Contains(position))
+                        if (ExtensionMethods.GetBoundingRectangle(this, GameContext.Instance).Contains(position))
                         {
                             var kidher = GetDirection(position);
                             Board.MovePlayer(kidher);
                         }
-                        break;
-                    case GestureType.Pinch:
-                        {
-                            // TODO: This code should be in Board,
-                            // Do we need this?,
-                            // current positions
-                            //var firstPosition = gesture.Position;
-                            //var lastPosition = gesture.Position2;
-                            //var distance = Vector2.Distance(firstPosition, lastPosition);
-
-                            //// prior positions
-                            //var oldFirstPosition = gesture.Position - gesture.Delta;
-                            //var oldLastPosition = gesture.Position2 - gesture.Delta2;
-                            //var oldDistance = Vector2.Distance(oldFirstPosition, oldLastPosition);
-
-                            //if (!_pinching)
-                            //{
-                            //    // start of pinch, record original distance
-                            //    _pinching = true;
-                            //    _pinchInitialDistance = oldDistance;
-                            //}
-
-                            //// work out zoom amount based on pinch distance...
-                            //var zoomFactor = (oldDistance - distance) * 0.05f;
-                            //ZoomBy(zoomFactor);
-                        }
-                        break;
-                    case GestureType.PinchComplete:
-                        //_pinching = false;
                         break;
                     case GestureType.VerticalDrag:
                         {
@@ -213,13 +185,13 @@ namespace ThakurEscape.Game.Screens
 
         internal MovementDirection GetDirection(Vector2 position)
         {
-            if (MoveLeft.BoundingRectangle.Contains(position))
+            if (ExtensionMethods.GetBoundingRectangle(this, MoveLeft, GameContext.Instance).Contains(position))
                 return MovementDirection.Left;
-            if (MoveRight.BoundingRectangle.Contains(position))
+            if (ExtensionMethods.GetBoundingRectangle(this, MoveRight, GameContext.Instance).Contains(position))
                 return MovementDirection.Right;
-            if (MoveUp.BoundingRectangle.Contains(position))
+            if (ExtensionMethods.GetBoundingRectangle(this, MoveUp, GameContext.Instance).Contains(position))
                 return MovementDirection.Up;
-            return MoveDown.BoundingRectangle.Contains(position)
+            return ExtensionMethods.GetBoundingRectangle(this, MoveDown, GameContext.Instance).Contains(position)
                 ? MovementDirection.Down
                 : MovementDirection.None;
         }

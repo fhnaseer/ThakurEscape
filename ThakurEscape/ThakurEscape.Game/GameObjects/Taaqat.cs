@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Game.GameObjects
 {
@@ -7,13 +6,8 @@ namespace ThakurEscape.Game.GameObjects
     {
         internal const int Steps = 26;
 
-        public Taaqat(float x, float y, float width, float height)
-            : this(new Vector2(x, y), width, height)
-        {
-        }
-
-        public Taaqat(Vector2 position, float width, float height)
-            : base(position, width, height)
+        public Taaqat(int row, int column)
+            : base(row, column)
         {
         }
 
@@ -25,11 +19,6 @@ namespace ThakurEscape.Game.GameObjects
         {
             get => Constants.TaaqatImagePath;
             set { }
-        }
-
-        internal override void Draw(SpriteBatch spriteBatch)
-        {
-            Draw(spriteBatch, Color.Black);
         }
     }
 }

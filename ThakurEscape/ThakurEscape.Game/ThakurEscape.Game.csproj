@@ -38,6 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="GameContext.cs" />
     <Compile Include="GameObjects\Arrows\ArrowBase.cs" />
     <Compile Include="GameObjects\Arrows\DownArrow.cs" />
     <Compile Include="GameObjects\Arrows\LeftArrow.cs" />
@@ -47,7 +48,7 @@
     <Compile Include="GameObjects\Dirwaazay\DirwaazaBase.cs" />
     <Compile Include="GameObjects\Dirwaazay\LaalDirwaaza.cs" />
     <Compile Include="GameObjects\Dirwaazay\SabzDirwaaza.cs" />
-    <Compile Include="GameObjects\Eint.cs" />
+    <Compile Include="GameObjects\Brick.cs" />
     <Compile Include="GameObjects\Enums.cs" />
     <Compile Include="GameObjects\Fonts\FontBase.cs" />
     <Compile Include="GameObjects\Fonts\Segoe.cs" />

@@ -1,22 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Game.GameObjects.Arrows
 {
     internal abstract class ArrowBase : GameObjectBase
     {
-        //protected ArrowBase(float x, float y, float width, float height)
-        //    : this (new Vector2(x,y), width, height)
-        //{
-        //}
-
-        protected ArrowBase(Vector2 position, float width, float height)
-            : base(position, width, height)
+        protected ArrowBase(int row, int column)
+            : base(row, column)
         {
         }
 
         protected abstract Direction ArrowDirection { get; }
-        protected virtual SpriteEffects SpriteEffect => SpriteEffects.None;
+
+        public override int ColumnSpan => 1;
 
         internal override string TextureContentPath
         {
@@ -29,9 +24,6 @@ namespace ThakurEscape.Game.GameObjects.Arrows
             set { }
         }
 
-        internal override void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(Texture, BoundingRectangle, null, Color.White, 0f, new Vector2(), SpriteEffect, 0);
-        }
+        public override Color SpriteColor => Color.White;
     }
 }

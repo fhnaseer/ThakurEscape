@@ -5,13 +5,6 @@ using ThakurEscape.Game.Storage;
 
 namespace ThakurEscape.Game.Screens
 {
-    internal enum LevelStatus
-    {
-        InProgress,
-        Completed,
-        GameOver
-    }
-
     internal class LevelScreen : FullScreenBase
     {
         public LevelScreen(int levelNumber)
@@ -24,7 +17,7 @@ namespace ThakurEscape.Game.Screens
             var level = GameStorage.GetLevel(levelNumber);
             LevelNumber = level.LevelNumber;
             LevelStatus = LevelStatus.InProgress;
-            Thakur = new Thakur(0, 0, BoardScreen.GameObjectWidth, BoardScreen.GameObjectHeight)
+            Thakur = new Thakur(0, 0)
             {
                 Taaqat = level.Taaqat,
                 Paisa = 0
@@ -36,21 +29,18 @@ namespace ThakurEscape.Game.Screens
         }
 
         internal int LevelNumber { get; set; }
+
         private BoardScreen _board;
         private readonly LevelControllerScreen _levelController = new LevelControllerScreen();
 
         internal Thakur Thakur { get; private set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+
         internal LevelStatus LevelStatus { get; private set; }
 
         internal override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
-
             _board.Draw(spriteBatch);
             _levelController.Draw(spriteBatch);
-
-            spriteBatch.End();
         }
 
         internal override void Update(GameTime gameTime)
@@ -63,7 +53,7 @@ namespace ThakurEscape.Game.Screens
                 // TODO: Display something to restart or go back.
                 RestartLevel(LevelNumber);
             }
-            if (Thakur.HasReachedExit)
+            if (_board.LevelStatus == LevelStatus.Completed)
             {
                 LevelStatus = LevelStatus.Completed;
                 // TODO: Display something to load next level or go back.

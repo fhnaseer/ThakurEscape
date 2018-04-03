@@ -1,17 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace ThakurEscape.Game.GameObjects.Arrows
 {
     internal class RightArrow : ArrowBase
     {
-        public RightArrow(float x, float y, float width, float height)
-            : this(new Vector2(x, y), width, height)
-        {
-        }
-
-        public RightArrow(Vector2 position, float width, float height)
-            : base(position, width, height)
+        public RightArrow(int row, int column)
+            : base(row, column)
         {
         }
 

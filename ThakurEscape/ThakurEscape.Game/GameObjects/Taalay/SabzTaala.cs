@@ -5,13 +5,8 @@ namespace ThakurEscape.Game.GameObjects.Taalay
 {
     public class SabzTaala : TaalaBase
     {
-        public SabzTaala(float x, float y, float width, float height)
-            : this(new Vector2(x, y), width, height)
-        {
-        }
-
-        public SabzTaala(Vector2 position, float width, float height)
-            : base(position, width, height)
+        public SabzTaala(int row, int column)
+            : base(row, column)
         {
         }
 
@@ -19,8 +14,8 @@ namespace ThakurEscape.Game.GameObjects.Taalay
 
         internal static Texture2D StaticTexture { get; set; }
 
-        protected override Color Color => Color.Green;
+        public override Color SpriteColor => Color.Green;
 
-        protected override TaalaType TaalaType => TaalaType.Sabz;
+        public override TaalaType TaalaType => TaalaType.Sabz;
     }
 }

@@ -5,17 +5,19 @@ namespace ThakurEscape.Game.GameObjects
 {
     public abstract class GameObjectBase
     {
-        //protected GameObjectBase(float x, float y, float width, float height)
-        //    : this(new Vector2(x, y), width, height)
-        //{
-        //}
-
-        protected GameObjectBase(Vector2 position, float width, float height)
+        protected GameObjectBase(int row, int column)
         {
-            Position = position;
-            Width = width;
-            Height = height;
+            Row = row;
+            Column = column;
         }
+
+        public int Row { get; set; }
+
+        public int Column { get; set; }
+
+        public virtual int ColumnSpan { get; protected set; } = 1;
+
+        public virtual int RowSpan { get; protected set; } = 1;
 
         internal abstract string TextureContentPath { get; set; }
 
@@ -27,19 +29,8 @@ namespace ThakurEscape.Game.GameObjects
             return ThakurEscapeGame.GameContent.Load<Texture2D>(TextureContentPath);
         }
 
-        public Vector2 Position { get; set; }
+        public virtual SpriteEffects SpriteEffect => SpriteEffects.None;
 
-        public Rectangle BoundingRectangle => new Rectangle((int)Position.X, (int)Position.Y, (int)Width, (int)Height);
-
-        public float Width { get; protected set; }
-        public float Height { get; protected set; }
-
-        internal virtual void Update() { }
-        internal abstract void Draw(SpriteBatch spriteBatch);
-        internal void Draw(SpriteBatch spriteBatch, Color color)
-        {
-            spriteBatch.Draw(Texture, BoundingRectangle, color);
-            //spriteBatch.Draw(Texture, position, null, color, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-        }
+        public virtual Color SpriteColor => Color.Black;
     }
 }
